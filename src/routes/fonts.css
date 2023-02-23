@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Avenir-Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir'), url('/fonts/AvenirLTStd-Book.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Avenir-Black';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Avenir'), url('/fonts/AvenirLTStd-Black.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Avenir-Roman';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir'), url('/fonts/AvenirLTStd-Roman.woff2') format('woff2');
+}

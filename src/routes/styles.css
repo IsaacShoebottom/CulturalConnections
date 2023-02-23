@@ -1,0 +1,7 @@
+@import "./fonts.css";
+
+:root {
+    --font-title: 'Avenir-Black', sans-serif;
+    --font-body: 'Avenir-Book', sans-serif;
+    font-family: var(--font-body);
+}
