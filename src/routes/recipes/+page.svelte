@@ -2,10 +2,9 @@
 	import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
     import { images } from './components/imgData.js';
-	import { categories } from './components/imgData.js';
+	import { categories } from './components/imgData.js'; /* Used for tagging */
 	import Gallery from './components/Gallery.svelte';
 	
-    // If on:tags is defined
     let tag = "";
 
     function handleTags(event) {
@@ -16,12 +15,7 @@
         "Vegan",
         "Vegetarian",
         "Kito",
-        "Healthy",
-        "vee",
-        "veeee",
-        "veeeeee",
-        "veeeeeeee",
-        "veeeeeeee"
+        "Healthy"
     ];
 
     let selectedTemp = 'all';
@@ -30,7 +24,19 @@
 
 	$: console.log('Changed selected:', selected)
 	$: console.log('Updated options:', options)
+
+    let columnSize = "33.3%";
+
+    const items = [
+        { text: 'Home', href: '/' },
+        { text: 'Recipes', href: 'recipes' }
+    ];
 </script>
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Recipes</li>
+</ul>
 
 <div class="sidenav">
     <select bind:value={selected} style="max-width: 150px;">
@@ -120,16 +126,20 @@
 
     /* Create three equal columns */
     .column {
-        width: 33.33%;
+        width: var(--columnSize);
         display: none;
         justify-content: center;
-        margin: 100px 0;
+        margin: 20px 8px;
     }
 
 
     /* Content */
     .content {
-        aspect-ratio: 1 / 1;
+        padding: 20px;
+        width:250px;
+        max-width:250px;
+        min-width:250px;
+        display: inline-block;
         background-color: white;
         margin: 5px;
         padding: 10px;
@@ -143,28 +153,64 @@
 
     /* The "show" class is added to the filtered elements */
     .show {
-    display: flex;
+        display: flex;
+    }
+
+    .breadcrumbs {
+        padding: 20px;
     }
 
     .sidenav {
-    width: 250px;
-    height: 400px;
-    position: fixed;
-    z-index: 1;
-    top: 20px;
-    left: 10px;
-    background: #eee;
-    overflow-x: hidden;
-    padding: 10px;
+        width: 250px;
+        height: 400px;
+        position: fixed;
+        z-index: 1;
+        top: 60px;
+        left: 10px;
+        background: #eee;
+        overflow-x: hidden;
+        padding: 10px;
     }
 
     .main {
-    margin-left: 260px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+        margin-left: 260px; /* Same width as the sidebar + left position in px */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
     }
 
     @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
+    }
+
+    /* Style the list */
+    ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        background-color: #eee;
+    }
+
+    /* Display list items side by side */
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+    }
+
+    /* Add a slash symbol (/) before/behind each list item */
+    ul.breadcrumb li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
+    }
+
+    /* Add a color to all links inside the list */
+    ul.breadcrumb li a {
+        color: #0275d8;
+        text-decoration: none;
+    }
+
+    /* Add a color on mouse-over */
+    ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
     }
 </style>
