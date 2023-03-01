@@ -1,10 +1,10 @@
 <script>
 	import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
-    import { presetCards } from './components/imgData.js';
+    import { presetCards } from '../components/imgData.js';
     import { Button } from 'flowbite-svelte';
-	import Gallery from './components/Gallery.svelte';
-    import '../../app.css';
+	import Gallery from '../components/Gallery.svelte';
+    import '../../../app.css';
     import { onMount } from 'svelte';
     import {
         Navbar,
@@ -157,106 +157,31 @@
 
 <Navbar let:hidden let:toggle>
     <NavBrand href="/" class="lg:ml-64">
-      <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
+        <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
         Cultural Connections
-      </span>
+        </span>
     </NavBrand>
     <NavHamburger on:click={toggle} />
     <NavUl {hidden} {divClass} {ulClass}>
-      <NavLi href="/">Home</NavLi>
-      <NavLi href="recipes">Recipes</NavLi>
-      <NavLi href="recipes/add">Create Recipe</NavLi>
-      <NavLi href="recipes/my-recipes">My Recipes</NavLi>
+        <NavLi href="../">Home</NavLi>
+        <NavLi href="../recipes">Recipes</NavLi>
+        <NavLi href="../recipes/add">Create Recipe</NavLi>
+        <NavLi href="my-recipes">My Recipes</NavLi>
     </NavUl>
-  </Navbar>
-
-  <Navbar let:hidden let:toggle>
-    <NavHamburger on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
-  </Navbar>
-
-  <Drawer
-    leftOffset="top-18 h-screen left-0"
-    transitionType= "fly"
-    {backdrop}
-    {transitionParams}
-    bind:hidden={drawerHidden}
-    bind:activateClickOutside
-    width="w-100"
-    class="overflow-scroll pb-32"
-    id= "sidebar"
-  >
-  <div class=" flex items-center">
-    <CloseButton on:click={() => (drawerHidden = true)} class="mb-4 dark:text-white lg:hidden" />
-  </div>
-  <Sidebar asideClass="w-54">
-    <SidebarWrapper divClass="overflow-y-auto py-4 px-3 rounded dark:bg-gray-800">
-      <SidebarGroup>
-        <select bind:value={selected} style="max-width: 150px;">
-            {#each options as value}<option {value}>{value}</option>{/each}
-        </select>
-        <div>
-            <Tags
-            bind:tags={tags}
-            addKeys={[9]}
-            maxTags={5}
-            allowPaste={true}
-            allowDrop={true}
-            splitWith={"/"}
-            onlyUnique={false}
-            removeKeys={[27]}
-            placeholder={"'vegan', 'vegetarian', etc"}
-            autoComplete={tagList}
-            name={"custom-name"}
-            id={"custom-id"}
-            allowBlur={true}
-            disable={false}
-            minChars={3}
-                onlyAutocomplete
-            />
-        </div>
-        <div>
-            <h5 style="margin-top: 30px;">Rating</h5>
-            <RangeSlider values={[3]} step={1}/>
-        </div>
-        <div>
-            <h5 style="margin-top: 30px;">Price</h5>
-            <RangeSlider values={[3]} step={1}/>
-        </div>
-        <div>
-            <h5 style="margin-top: 30px;">Difficulty</h5>
-            <RangeSlider values={[3]} step={1}/>
-        </div>
-        <div class="apply">
-            <Button color="red" on:click={() => setTags()}>apply filters</Button>
-        </div>
-      </SidebarGroup>
-    </SidebarWrapper>
-  </Sidebar>
-  </Drawer>
+</Navbar>
 
   <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
-    <main class="lg:ml-72 w-full mx-auto">
+    <main>
         <Gallery>
             {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr}}	
-                {#if searchTags === undefined || searchTags.length == 0}
-                    <div class="show column">
-                        <div class="content">
-                            <img src={url} alt={name} style="width:100%">
-                            <h4>{name}</h4>
-                            <h3>{country}</h3>
-                            <span class="stars">{star.repeat(stars)}</span>
-                        </div>
+                <div class="show column">
+                    <div class="content">
+                        <img src={url} alt={name} style="width:100%">
+                        <h4>{name}</h4>
+                        <h3>{country}</h3>
+                        <span class="stars">{star.repeat(stars)}</span>
                     </div>
-                {:else}
-                    <div class:show={keyword.some(r=>searchTags.includes(r))} class="column">
-                        <div class="content">
-                            <img src={url} alt={name} style="width:100%">
-                            <h4>{name}</h4>
-                            <h3>{country}</h3>
-                            <span class="stars">{star.repeat(stars)}</span>
-                        </div>
-                    </div>
-                {/if}
+                </div>
             {/each}
         </Gallery>
         <div class="pageNumbers">
@@ -276,109 +201,109 @@
     </main>
   </div>
 
-<style global>
-    main {
-        font-size: 28px; /* Increased text to enable scrolling */
-        padding: 0px 10px;
-        max-width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    /* 	background-color: red; */
-    }
+  <style global>
+  main {
+      font-size: 28px; /* Increased text to enable scrolling */
+      padding: 0px 10px;
+      max-width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  /* 	background-color: red; */
+  }
 
-    img {
-        height: 100px;
-        object-fit: cover;
-    }
+  img {
+      height: 100px;
+      object-fit: cover;
+  }
 
-    h4 {
-        font-size: 1.5rem;
-        margin: 0;
-    }
+  h4 {
+      font-size: 1.5rem;
+      margin: 0;
+  }
 
-    h3 {
-        font-size: 0.75rem;
-    }
-        
-    p {
-        margin: 0 0 .5rem;
-        position: relative;
-    }
+  h3 {
+      font-size: 0.75rem;
+  }
+      
+  p {
+      margin: 0 0 .5rem;
+      position: relative;
+  }
 
-    .stars {
-        font-size: 1rem;
-        margin: 0;
-        position: 'relative';
-        top: -15px;
-    }
+  .stars {
+      font-size: 1rem;
+      margin: 0;
+      position: 'relative';
+      top: -15px;
+  }
 
-    /* Create three equal columns */
-    .column {
-        width: auto;
-        display: none;
-        justify-content: center;
-        margin: 20px 8px;
-    }
+  /* Create three equal columns */
+  .column {
+      width: auto;
+      display: none;
+      justify-content: center;
+      margin: 20px 8px;
+  }
 
 
-    /* Content */
-    .content {
-        padding: 20px;
-        width:250px;
-        max-width:250px;
-        min-width:250px;
-        display: inline-block;
-        background-color: white;
-        margin: 5px;
-        padding: 10px;
-        width: 30vw;
-        box-shadow: 1px 1px 5px rgb(167, 167, 167);
-    }
+  /* Content */
+  .content {
+      padding: 20px;
+      width:250px;
+      max-width:250px;
+      min-width:250px;
+      display: inline-block;
+      background-color: white;
+      margin: 5px;
+      padding: 10px;
+      width: 30vw;
+      box-shadow: 1px 1px 5px rgb(167, 167, 167);
+  }
 
-    /* The "show" class is added to the filtered elements */
-    .show {
-        display: flex;
-    }
+  /* The "show" class is added to the filtered elements */
+  .show {
+      display: flex;
+  }
 
-    .apply {
-        padding-top: 40px;
-    }
+  .apply {
+      padding-top: 40px;
+  }
 
-    .pageNumbers {
-        margin: 0 auto;
-    }
+  .pageNumbers {
+      margin: 0 auto;
+  }
 
-    /* Style the list */
-    ul.breadcrumb {
-        padding: 10px 16px;
-        list-style: none;
-        background-color: #eee;
-    }
+  /* Style the list */
+  ul.breadcrumb {
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+  }
 
-    /* Display list items side by side */
-    ul.breadcrumb li {
-        display: inline;
-        font-size: 18px;
-    }
+  /* Display list items side by side */
+  ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+  }
 
-    /* Add a slash symbol (/) before/behind each list item */
-    ul.breadcrumb li+li:before {
-        padding: 8px;
-        color: black;
-        content: "/\00a0";
-    }
+  /* Add a slash symbol (/) before/behind each list item */
+  ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+  }
 
-    /* Add a color to all links inside the list */
-    ul.breadcrumb li a {
-        color: #0275d8;
-        text-decoration: none;
-    }
+  /* Add a color to all links inside the list */
+  ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+  }
 
-    /* Add a color on mouse-over */
-    ul.breadcrumb li a:hover {
-        color: #01447e;
-        text-decoration: underline;
-    }
+  /* Add a color on mouse-over */
+  ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+  }
 </style>
