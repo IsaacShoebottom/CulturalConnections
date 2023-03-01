@@ -12,35 +12,50 @@
 	let difficultyText =
 		difficultyMap.get(data.data.difficulty) || "No difficulty set";
 
+	let ingredients = data.data.ingredients;
+
+	console.log(ingredients);
+
+	let ingredientsLength = Object.keys(ingredients).length;
 	let ingredientText;
-	if (data.data.ingredients.length === 0) {
+	if (ingredientsLength === 0) {
 		ingredientText = "No ingredients";
-	} else if (data.data.ingredients.length === 1) {
+	} else if (ingredientsLength === 1) {
 		ingredientText = "1 ingredient";
 	} else {
-		ingredientText = `${data.data.ingredients.length} ingredients`;
+		ingredientText = `${ingredientsLength} ingredients`;
 	}
+
+	let ingredientsArray = Object.entries(ingredients);
 </script>
 
-<div class="m-10 space-y-3">
-	<div class="">
-		<span class='text-3xl'>{data.data.title}</span> ~ <span>{data.data.price}</span> $
+<div class="m-10 space-y-3 overflow-auto">
+	<div class="flex place-items-center flex-col text-left">
+		<div>
+			<span class="text-3xl">{data.data.title}</span> ~
+			<span>{data.data.price}</span> $
+		</div>
+		<div>
+			<span>{stars}</span> ~ <span>{difficultyText}</span> ~
+			<span>{ingredientText}</span>
+		</div>
+		<div class="text-xl">{data.data.country}</div>
+		<!-- Here is where tags go? Not sure how we are doing tags atm -->
 	</div>
-	<div>
-		<span>{stars}</span> ~ <span>{difficultyText}</span> ~ <span>{ingredientText}</span>
-	</div>
-	<div class="text-xl">{data.data.country}</div>
-	<!-- Here is where tags go? Not sure how we are doing tags atm -->
 
-	<div class="flex flex-wrap">
+	<div class="flex flex-wrap justify-center place-items-center">
 		<div class="mr-5">
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<img class="rounded max-h-fit" src={data.data.photo} />
+			<img class="rounded-xl max-w-md max-h-md w-full" src={data.data.photo} />
 		</div>
 		<div class="space-y-5">
 			<div class="max-w-screen-sm">{data.data.culture}</div>
+			<div>
+				{#each ingredientsArray as ingredient}
+					<ul>{ingredient[0]}: {ingredient[1]}</ul>
+				{/each}
+			</div>
 			<div class="max-w-screen-sm">{data.data.recipe}</div>
 		</div>
-		
 	</div>
 </div>
