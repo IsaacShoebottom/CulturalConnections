@@ -156,7 +156,6 @@
 <svelte:window bind:innerWidth={width} />
 
 <Navbar let:hidden let:toggle>
-    <NavHamburger on:click={toggleDrawer} btnClass="ml-3 lg:hidden" />
     <NavBrand href="/" class="lg:ml-64">
       <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
         Cultural Connections
@@ -169,6 +168,10 @@
       <NavLi href="recipes/add">Create Recipe</NavLi>
       <NavLi href="recipes/my-recipes">My Recipes</NavLi>
     </NavUl>
+  </Navbar>
+
+  <Navbar let:hidden let:toggle>
+    <NavHamburger on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
   </Navbar>
 
   <Drawer
@@ -259,16 +262,16 @@
         <div class="pageNumbers">
             {#each pageArray as num, i (num)}
                 {#if i == currentPage}
-                    <Button pill={true} gradient color="cyanToBlue" size="xs" on:click={() => changePage(i)}>
+                    <Button class="m-1" pill={true} gradient color="cyanToBlue" size="xs" on:click={() => changePage(i)}>
                         {num}
                     </Button>
                 {:else}
-                    <Button pill={true} color="red" size="xs" on:click={() => changePage(i)}>
+                    <Button class="m-1" pill={true} color="red" size="xs" on:click={() => changePage(i)}>
                         {num}
                     </Button>
                 {/if}
             {/each}
-          </div>
+        </div>
       <slot />
     </main>
   </div>
