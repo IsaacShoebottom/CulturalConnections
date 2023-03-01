@@ -1,4 +1,4 @@
-export const cards = [
+export const presetCards = [
     {
             name: "Poutine",
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Food_at_WIkimanian_2017_02.jpg/1200px-Food_at_WIkimanian_2017_02.jpg",
@@ -6,7 +6,7 @@ export const cards = [
             country: "canada",
             difficulty: "medium",
             price: "low",
-            rating: "4",
+            stars: 4,
             descr: "Canada's signature!"
     }, 
     {
@@ -16,7 +16,7 @@ export const cards = [
             country: "united states",
             difficulty: "low",
             price: "low",
-            rating: "2",
+            stars: 2,
             descr: "The perfect diet food!"
     }, 
     {
@@ -26,27 +26,27 @@ export const cards = [
             country: "united kingdom",
             difficulty: "low",
             price: "low",
-            rating: "4",
+            stars: 4,
             descr: "Bacon Lettuce Tomatoe"
     }, 
     {
             name: "Steak",
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Beef_fillet_steak_with_mushrooms.jpg/1200px-Beef_fillet_steak_with_mushrooms.jpg",
             keyword: ["meat", "kosher"],
-            country: "",
+            country: "united states",
             difficulty: "medium",
             price: "high",
-            rating: "4",
+            stars: 4,
             descr: "Medium or Medium Rare?"
     }, 
     {
             name: "Steak and Eggs",
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg/1200px-Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg",
             keyword: ["meat", "kosher"],
-            country: "",
+            country: "united states",
             difficulty: "medium",
             price: "high",
-            rating: "3",
+            stars: 3,
             descr: "Lots of protein"
     }, 
     {
@@ -56,7 +56,7 @@ export const cards = [
             country: "japan",
             difficulty: "low",
             price: "low",
-            rating: "2",
+            stars: 3,
             descr: "On a budget?"
     }, 
     {
@@ -66,7 +66,7 @@ export const cards = [
             country: "japan",
             difficulty: "high",
             price: "medium",
-            rating: "5",
+            stars: 5,
             descr: "Not your average california roll!"
     }, 
     {
@@ -76,7 +76,7 @@ export const cards = [
             country: "india",
             difficulty: "high",
             price: "medium",
-            rating: "5",
+            stars: 5,
             descr: "Eat it by the spoonful!"
     }, 
     {
@@ -86,7 +86,7 @@ export const cards = [
             country: "scotland",
             difficulty: "low",
             price: "low",
-            rating: "4",
+            stars: 4,
             descr: "Scottish 'hash browns'"
     },
     {
@@ -96,7 +96,7 @@ export const cards = [
         country: "canada",
         difficulty: "medium",
         price: "low",
-        rating: "4",
+        stars: 4,
         descr: "Canada's signature!"
 }, 
 {
@@ -106,7 +106,7 @@ export const cards = [
         country: "united states",
         difficulty: "low",
         price: "low",
-        rating: "2",
+        stars: 2,
         descr: "The perfect diet food!"
 }, 
 {
@@ -116,27 +116,27 @@ export const cards = [
         country: "united kingdom",
         difficulty: "low",
         price: "low",
-        rating: "4",
+        stars: 4,
         descr: "Bacon Lettuce Tomatoe"
 }, 
 {
         name: "Steak",
         url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Beef_fillet_steak_with_mushrooms.jpg/1200px-Beef_fillet_steak_with_mushrooms.jpg",
         keyword: ["meat", "kosher"],
-        country: "",
+        country: "united states",
         difficulty: "medium",
         price: "high",
-        rating: "4",
+        stars: 4,
         descr: "Medium or Medium Rare?"
 }, 
 {
         name: "Steak and Eggs",
         url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg/1200px-Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg",
         keyword: ["meat", "kosher"],
-        country: "",
+        country: "united states",
         difficulty: "medium",
         price: "high",
-        rating: "3",
+        stars: 3,
         descr: "Lots of protein"
 }, 
 {
@@ -146,7 +146,7 @@ export const cards = [
         country: "japan",
         difficulty: "low",
         price: "low",
-        rating: "2",
+        stars: 2,
         descr: "On a budget?"
 }, 
 {
@@ -156,7 +156,7 @@ export const cards = [
         country: "japan",
         difficulty: "high",
         price: "medium",
-        rating: "5",
+        stars: 5,
         descr: "Not your average california roll!"
 }, 
 {
@@ -166,7 +166,7 @@ export const cards = [
         country: "india",
         difficulty: "high",
         price: "medium",
-        rating: "5",
+        stars: 5,
         descr: "Eat it by the spoonful!"
 }, 
 {
@@ -176,7 +176,7 @@ export const cards = [
         country: "scotland",
         difficulty: "low",
         price: "low",
-        rating: "4",
+        stars: 4,
         descr: "Scottish 'hash browns'"
 },
 ];

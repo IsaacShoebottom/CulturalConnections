@@ -1,7 +1,7 @@
 <script>
 	import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
-    import { cards } from './components/imgData.js';
+    import { presetCards } from './components/imgData.js';
     import { Button } from 'flowbite-svelte';
 	import Gallery from './components/Gallery.svelte';
     import '../../app.css';
@@ -21,9 +21,14 @@
     import { Cog } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
 
+    let star = "⭐";
+
+    let cards = presetCards.slice();
+
     // page logic
+    let unfilteredCards = presetCards.slice();
     let pageNumber = Math.ceil(cards.length / 15);
-    let currentPage = 1;
+    let currentPage = 0;
     let pageArray = [];
     for (let i=0; i<pageNumber; i++) {
         pageArray.push(i+1);
@@ -107,6 +112,32 @@
 
     function setTags() {
         searchTags = tags;
+
+        if (searchTags == undefined || searchTags.length == 0) {
+            cards = unfilteredCards.slice();
+        }
+        else {
+            cards = [];
+            unfilteredCards.forEach(c => {
+                if (c.keyword.some(r=>searchTags.includes(r))) {
+                    cards.push(c);
+                }
+            });
+        }
+
+        if (cards.length <= 15) {
+            selectedCards = cards.slice();
+        }
+        else {
+            selectedCards = cards.slice().splice(0, 15);
+        }
+
+        pageNumber = Math.ceil(cards.length / 15);
+        currentPage = 1;
+        pageArray = [];
+        for (let i=0; i<pageNumber; i++) {
+            pageArray.push(i+1);
+        }
     }
 
 	let selected = 'Canada';
@@ -136,7 +167,7 @@
       <NavLi href="/">Home</NavLi>
       <NavLi href="recipes">Recipes</NavLi>
       <NavLi href="recipes/add">Create Recipe</NavLi>
-      <NavLi href="/">My Recipes</NavLi>
+      <NavLi href="recipes/my-recipes">My Recipes</NavLi>
     </NavUl>
   </Navbar>
 
@@ -203,13 +234,14 @@
   <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
     <main class="lg:ml-72 w-full mx-auto">
         <Gallery>
-            {#each selectedCards as {name, url, keyword, descr}}	
+            {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr}}	
                 {#if searchTags === undefined || searchTags.length == 0}
                     <div class="show column">
                         <div class="content">
                             <img src={url} alt={name} style="width:100%">
                             <h4>{name}</h4>
-                            <p>{descr}</p>
+                            <h3>{country}</h3>
+                            <span class="stars">{star.repeat(stars)}</span>
                         </div>
                     </div>
                 {:else}
@@ -217,7 +249,8 @@
                         <div class="content">
                             <img src={url} alt={name} style="width:100%">
                             <h4>{name}</h4>
-                            <p>{descr}</p>
+                            <h3>{country}</h3>
+                            <span class="stars">{star.repeat(stars)}</span>
                         </div>
                     </div>
                 {/if}
@@ -225,9 +258,15 @@
         </Gallery>
         <div class="pageNumbers">
             {#each pageArray as num, i (num)}
-                <Button pill={true} color="red" size="xs" on:click={() => changePage(i)}>
-                    {num}
-                </Button>
+                {#if i == currentPage}
+                    <Button pill={true} gradient color="cyanToBlue" size="xs" on:click={() => changePage(i)}>
+                        {num}
+                    </Button>
+                {:else}
+                    <Button pill={true} color="red" size="xs" on:click={() => changePage(i)}>
+                        {num}
+                    </Button>
+                {/if}
             {/each}
           </div>
       <slot />
@@ -246,14 +285,30 @@
     /* 	background-color: red; */
     }
 
+    img {
+        height: 100px;
+        object-fit: cover;
+    }
+
     h4 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 0;
+    }
+
+    h3 {
+        font-size: 0.75rem;
     }
         
     p {
         margin: 0 0 .5rem;
         position: relative;
+    }
+
+    .stars {
+        font-size: 1rem;
+        margin: 0;
+        position: 'relative';
+        top: -15px;
     }
 
     /* Create three equal columns */
