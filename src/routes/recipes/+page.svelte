@@ -1,11 +1,10 @@
 <script>
 	import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
-    import { images } from './components/imgData.js';
-	import { categories } from './components/imgData.js'; /* Used for tagging */
+    import { cards } from './components/imgData.js';
+    import { Button } from 'flowbite-svelte';
 	import Gallery from './components/Gallery.svelte';
     import '../../app.css';
-    import { page } from '$app/stores';
     import { onMount } from 'svelte';
     import {
         Navbar,
@@ -15,24 +14,55 @@
         NavHamburger,
         Sidebar,
         SidebarGroup,
-        SidebarItem,
         SidebarWrapper,
         Drawer,
         CloseButton,
-        SidebarDropdownWrapper
     } from 'flowbite-svelte';
     import { Cog } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
+
+    // page logic
+    let pageNumber = Math.ceil(cards.length / 15);
+    let currentPage = 1;
+    let pageArray = [];
+    for (let i=0; i<pageNumber; i++) {
+        pageArray.push(i+1);
+    }
+
+    console.log(cards);
+    let selectedCards
+    if (cards.length <= 15) {
+        selectedCards = cards.slice();
+    }
+    else {
+        selectedCards = cards.slice().splice(0, 15);
+    }
+    console.log(cards);
+
+    function changePage(i) {
+        console.log(i);
+        currentPage = i;
+        let firstIndex = i * 15;
+        let lastIndex = firstIndex + 15;
+        console.log(firstIndex + " " + lastIndex);
+        console.log(cards);
+        if (lastIndex >= cards.length) {
+            selectedCards = cards.slice().splice(firstIndex, cards.length);
+        }
+        else {
+            selectedCards = cards.slice().splice(firstIndex, lastIndex+1)
+        }
+    }
     
     let divClass = 'w-full md:block md:w-auto pr-8';
     let ulClass = 'flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium';
 
     let drawerHidden = false;
+    let backdrop = false;
     const toggleDrawer = () => {
         drawerHidden = !drawerHidden;
     };
 
-    let backdrop = false;
     let activateClickOutside = true;
     let breakPoint = 1024;
     let width;
@@ -41,63 +71,56 @@
       duration: 200,
       easing: sineIn
     };
+
     $: if (width >= breakPoint) {
       drawerHidden = false;
+      backdrop = false;
       activateClickOutside = false;
     } else {
       drawerHidden = true;
+      backdrop = true;
       activateClickOutside = true;
     }
+
     onMount(() => {
       if (width >= breakPoint) {
         drawerHidden = false;
+        backdrop = false;
         activateClickOutside = false;
       } else {
         drawerHidden = true;
+        backdrop = true;
         activateClickOutside = true;
       }
     });
-
-    const toggleSide = () => {
-    if (width < breakPoint) {
-        drawerHidden = !drawerHidden;
-    }
-    };
-    $: activeUrl = $page.url.pathname;
-    let spanClass = 'pl-2 self-center text-md text-gray-900 whitespace-nowrap dark:text-white';
-
-    let tag = "";
-
-    function handleTags(event) {
-        tag = event.detail.tags;
-    }
+    
+    let tags = [];
+    let searchTags = [];
 
     const tagList = [
-        "Vegan",
-        "Vegetarian",
-        "Kito",
-        "Healthy"
+        "vegan",
+        "vegetarian",
+        "kito",
+        "healthy",
+        "unhealthy"
     ];
 
-    let selectedTemp = 'all';
+    function setTags() {
+        searchTags = tags;
+    }
+
 	let selected = 'Canada';
 	let options = ["United States", "Canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and/or Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Cook Islands", "Costa Rica", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecudaor", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France, Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kosovo", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfork Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbarn and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States minor outlying islands", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City State", "Venezuela", "Vietnam", "Virigan Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zaire", "Zambia", "Zimbabwe"]
 
 	$: console.log('Changed selected:', selected)
 	$: console.log('Updated options:', options)
 
-    let columnSize = "33.3%";
-
     const items = [
         { text: 'Home', href: '/' },
         { text: 'Recipes', href: 'recipes' }
     ];
-</script>
 
-<ul class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li>Recipes</li>
-</ul>
+</script>
 
 <svelte:window bind:innerWidth={width} />
 
@@ -118,6 +141,7 @@
   </Navbar>
 
   <Drawer
+    leftOffset="top-18 h-screen left-0"
     transitionType= "fly"
     {backdrop}
     {transitionParams}
@@ -138,7 +162,7 @@
         </select>
         <div>
             <Tags
-            on:tags={handleTags}
+            bind:tags={tags}
             addKeys={[9]}
             maxTags={5}
             allowPaste={true}
@@ -168,44 +192,50 @@
             <h5 style="margin-top: 30px;">Difficulty</h5>
             <RangeSlider values={[3]} step={1}/>
         </div>
+        <div class="apply">
+            <Button color="red" on:click={() => setTags()}>apply filters</Button>
+        </div>
       </SidebarGroup>
     </SidebarWrapper>
   </Sidebar>
   </Drawer>
 
-  <div class="flex px-4 mx-auto w-full">
+  <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
     <main class="lg:ml-72 w-full mx-auto">
+        <Gallery>
+            {#each selectedCards as {name, url, keyword, descr}}	
+                {#if searchTags === undefined || searchTags.length == 0}
+                    <div class="show column">
+                        <div class="content">
+                            <img src={url} alt={name} style="width:100%">
+                            <h4>{name}</h4>
+                            <p>{descr}</p>
+                        </div>
+                    </div>
+                {:else}
+                    <div class:show={keyword.some(r=>searchTags.includes(r))} class="column">
+                        <div class="content">
+                            <img src={url} alt={name} style="width:100%">
+                            <h4>{name}</h4>
+                            <p>{descr}</p>
+                        </div>
+                    </div>
+                {/if}
+            {/each}
+        </Gallery>
+        <div class="pageNumbers">
+            {#each pageArray as num, i (num)}
+                <Button pill={true} color="red" size="xs" on:click={() => changePage(i)}>
+                    {num}
+                </Button>
+            {/each}
+          </div>
       <slot />
     </main>
   </div>
 
-<main>
-    <Gallery>
-		{#each images as {name, url, keyword, descr}}	
-			{#if selectedTemp === "all"}
-				<div class="show column">
-					<div class="content">
-						<img src={url} alt={name} style="width:100%">
-						<h4>{name}</h4>
-						<p>{descr}</p>
-					</div>
-				</div>
-			{:else}
-				<div class:show={selectedTemp === keyword} class="column">
-					<div class="content">
-						<img src={url} alt={name} style="width:100%">
-						<h4>{name}</h4>
-						<p>{descr}</p>
-					</div>
-				</div>
-			{/if}
-		{/each}
-	</Gallery>
-</main>  
-
 <style global>
     main {
-        margin-left: 260px; /* Same width as the sidebar + left position in px */
         font-size: 28px; /* Increased text to enable scrolling */
         padding: 0px 10px;
         max-width: 100vw;
@@ -228,7 +258,7 @@
 
     /* Create three equal columns */
     .column {
-        width: var(--columnSize);
+        width: auto;
         display: none;
         justify-content: center;
         margin: 20px 8px;
@@ -246,42 +276,20 @@
         margin: 5px;
         padding: 10px;
         width: 30vw;
-        box-shadow: 1px 1px 5px black;
+        box-shadow: 1px 1px 5px rgb(167, 167, 167);
     }
-        
-        img {
-            min-height: 200px;
-        }
 
     /* The "show" class is added to the filtered elements */
     .show {
         display: flex;
     }
 
-    .breadcrumbs {
-        padding: 20px;
+    .apply {
+        padding-top: 40px;
     }
 
-    .sidenav {
-        width: 250px;
-        height: 400px;
-        position: fixed;
-        z-index: 1;
-        top: 60px;
-        left: 10px;
-        background: #eee;
-        overflow-x: hidden;
-        padding: 10px;
-    }
-
-    .main {
-        margin-left: 260px; /* Same width as the sidebar + left position in px */
-        font-size: 28px; /* Increased text to enable scrolling */
-        padding: 0px 10px;
-    }
-
-    @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
+    .pageNumbers {
+        margin: 0 auto;
     }
 
     /* Style the list */

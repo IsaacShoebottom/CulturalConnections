@@ -1,58 +1,184 @@
-export const images = [
+export const cards = [
     {
-            name: "Sharks",
-            url: "https://media3.giphy.com/media/XWHe62Za5zPck/giphy.gif?cid=ecf05e47569ko4taxmf5vo4pw5m9t6ef5j6p0im94heewuly&rid=giphy.gif",
-            keyword: "nature",
-            descr: "Lorem ipsum dolor.."
+            name: "Poutine",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Food_at_WIkimanian_2017_02.jpg/1200px-Food_at_WIkimanian_2017_02.jpg",
+            keyword: ["unhealthy", "kosher"],
+            country: "canada",
+            difficulty: "medium",
+            price: "low",
+            rating: "4",
+            descr: "Canada's signature!"
     }, 
     {
-            name: "Sunlight",
-            url: "https://media3.giphy.com/media/xT0xeNf2csFIbeAxvq/giphy.gif?cid=ecf05e47vgs0k9lju46i82qprmict9oirj61fzgih4p27wa6&rid=giphy.gif",
-            keyword: "nature",
-            descr: "Lorem ipsum dolor.."
+            name: "Salad",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+            keyword: ["vegan", "vegetarian", "kosher"],
+            country: "united states",
+            difficulty: "low",
+            price: "low",
+            rating: "2",
+            descr: "The perfect diet food!"
     }, 
     {
-            name: "Forest",
-            url: "https://media0.giphy.com/media/5xtDarFOeUIMZkLclTa/giphy.gif?cid=ecf05e470cbe5d36900df2a901cc3d236bad495cae404194&rid=giphy.gif",
-            keyword: "nature",
-            descr: "Lorem ipsum dolor.."
+            name: "BLT",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BLT_sandwich_%281%29.jpg/1200px-BLT_sandwich_%281%29.jpg",
+            keyword: ["unhealthy", "meat"],
+            country: "united kingdom",
+            difficulty: "low",
+            price: "low",
+            rating: "4",
+            descr: "Bacon Lettuce Tomatoe"
     }, 
     {
-            name: "Retro",
-            url: "https://media4.giphy.com/media/coJKXGmsKHqJG/giphy.gif?cid=ecf05e472dn6lee2e35h0s6rue5me96wixz1938rke4rcf91&rid=giphy.gif",
-            keyword: "cars",
-            descr: "Lorem ipsum dolor.."
+            name: "Steak",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Beef_fillet_steak_with_mushrooms.jpg/1200px-Beef_fillet_steak_with_mushrooms.jpg",
+            keyword: ["meat", "kosher"],
+            country: "",
+            difficulty: "medium",
+            price: "high",
+            rating: "4",
+            descr: "Medium or Medium Rare?"
     }, 
     {
-            name: "Fast",
-            url: "https://media4.giphy.com/media/abgxkEiJQjaSY/giphy.gif?cid=ecf05e47gw3slntmubichpyolkpilno6kdow97m3afhbkzn5&rid=giphy.gif",
-            keyword: "cars",
-            descr: "Lorem ipsum dolor.."
+            name: "Steak and Eggs",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg/1200px-Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg",
+            keyword: ["meat", "kosher"],
+            country: "",
+            difficulty: "medium",
+            price: "high",
+            rating: "3",
+            descr: "Lots of protein"
     }, 
     {
-            name: "Classic",
-            url: "https://media3.giphy.com/media/l4EoTXSI1kLJB9g6A/giphy.gif?cid=ecf05e47icgxx5wohyron0pz5ansqo3pihb90fn8hd80w41t&rid=giphy.gif",
-            keyword: "cars",
-            descr: "Lorem ipsum dolor.."
+            name: "Instant Noodles",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mama_instant_noodle_block.jpg/1200px-Mama_instant_noodle_block.jpg",
+            keyword: ["meat", "vegetarian"],
+            country: "japan",
+            difficulty: "low",
+            price: "low",
+            rating: "2",
+            descr: "On a budget?"
     }, 
     {
-            name: "Child",
-            url: "https://media0.giphy.com/media/iprlQKfz9ScvI6Lqph/giphy.gif?cid=ecf05e47sl8b6pbslpb3vgtp7x3mldqddm1wkbxjb5cxfrau&rid=giphy.gif",
-            keyword: "people",
-            descr: "Lorem ipsum dolor.."
+            name: "Sushi",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Various_sushi%2C_beautiful_October_night_at_midnight.jpg/1200px-Various_sushi%2C_beautiful_October_night_at_midnight.jpg",
+            keyword: ["vegetarian", "kosher"],
+            country: "japan",
+            difficulty: "high",
+            price: "medium",
+            rating: "5",
+            descr: "Not your average california roll!"
     }, 
     {
-            name: "Man",
-            url: "https://media1.giphy.com/media/9iwHCRDji7tUQ/giphy.gif?cid=ecf05e47s9u25sbik1qt30ub1ga7fxgw7mlbvstagznnzjzs&rid=giphy.gif",
-            keyword: "people",
-            descr: "Lorem ipsum dolor.."
+            name: "Curry",
+            url: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Indiandishes.jpg",
+            keyword: ["meat", "kosher"],
+            country: "india",
+            difficulty: "high",
+            price: "medium",
+            rating: "5",
+            descr: "Eat it by the spoonful!"
     }, 
     {
-            name: "Woman",
-            url: "https://media2.giphy.com/media/jULDx93JmHDEobmk2s/giphy.gif?cid=ecf05e47lrskfuuip9i2ys7g51m9zmhltllf0p772ag5c73c&rid=giphy.gif",
-            keyword: "people",
-            descr: "Lorem ipsum dolor.."
-    }
+            name: "Tattie Scones",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Potato_scone_with_vegetable_bake.jpg/1200px-Potato_scone_with_vegetable_bake.jpg",
+            keyword: ["vegan", "vegetarian", "unhealthy"],
+            country: "scotland",
+            difficulty: "low",
+            price: "low",
+            rating: "4",
+            descr: "Scottish 'hash browns'"
+    },
+    {
+        name: "Poutine",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Food_at_WIkimanian_2017_02.jpg/1200px-Food_at_WIkimanian_2017_02.jpg",
+        keyword: ["unhealthy", "kosher"],
+        country: "canada",
+        difficulty: "medium",
+        price: "low",
+        rating: "4",
+        descr: "Canada's signature!"
+}, 
+{
+        name: "Salad",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg",
+        keyword: ["vegan", "vegetarian", "kosher"],
+        country: "united states",
+        difficulty: "low",
+        price: "low",
+        rating: "2",
+        descr: "The perfect diet food!"
+}, 
+{
+        name: "BLT",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BLT_sandwich_%281%29.jpg/1200px-BLT_sandwich_%281%29.jpg",
+        keyword: ["unhealthy", "meat"],
+        country: "united kingdom",
+        difficulty: "low",
+        price: "low",
+        rating: "4",
+        descr: "Bacon Lettuce Tomatoe"
+}, 
+{
+        name: "Steak",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Beef_fillet_steak_with_mushrooms.jpg/1200px-Beef_fillet_steak_with_mushrooms.jpg",
+        keyword: ["meat", "kosher"],
+        country: "",
+        difficulty: "medium",
+        price: "high",
+        rating: "4",
+        descr: "Medium or Medium Rare?"
+}, 
+{
+        name: "Steak and Eggs",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg/1200px-Wagyu_rump_steak_and_eggs_-_Jones_the_Grocer%2C_Chadstone.jpg",
+        keyword: ["meat", "kosher"],
+        country: "",
+        difficulty: "medium",
+        price: "high",
+        rating: "3",
+        descr: "Lots of protein"
+}, 
+{
+        name: "Instant Noodles",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mama_instant_noodle_block.jpg/1200px-Mama_instant_noodle_block.jpg",
+        keyword: ["meat", "vegetarian"],
+        country: "japan",
+        difficulty: "low",
+        price: "low",
+        rating: "2",
+        descr: "On a budget?"
+}, 
+{
+        name: "Sushi",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Various_sushi%2C_beautiful_October_night_at_midnight.jpg/1200px-Various_sushi%2C_beautiful_October_night_at_midnight.jpg",
+        keyword: ["vegetarian", "kosher"],
+        country: "japan",
+        difficulty: "high",
+        price: "medium",
+        rating: "5",
+        descr: "Not your average california roll!"
+}, 
+{
+        name: "Curry",
+        url: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Indiandishes.jpg",
+        keyword: ["meat", "kosher"],
+        country: "india",
+        difficulty: "high",
+        price: "medium",
+        rating: "5",
+        descr: "Eat it by the spoonful!"
+}, 
+{
+        name: "Tattie Scones",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Potato_scone_with_vegetable_bake.jpg/1200px-Potato_scone_with_vegetable_bake.jpg",
+        keyword: ["vegan", "vegetarian", "unhealthy"],
+        country: "scotland",
+        difficulty: "low",
+        price: "low",
+        rating: "4",
+        descr: "Scottish 'hash browns'"
+},
 ];
 
 export const categories = ["all", "nature", "cars", "people"];
