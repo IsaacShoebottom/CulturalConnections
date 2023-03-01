@@ -21,12 +21,37 @@
     import { Cog } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
 
+    // page logic
+    let pageNumber = Math.ceil(cards.length / 15);
+    let currentPage = 1;
+    let pageArray = [];
+    for (let i=0; i<pageNumber; i++) {
+        pageArray.push(i+1);
+    }
+
+    console.log(cards);
     let selectedCards
     if (cards.length <= 15) {
-        selectedCards = cards;
+        selectedCards = cards.slice();
     }
     else {
-        selectedCards = cards.splice(0, 15);
+        selectedCards = cards.slice().splice(0, 15);
+    }
+    console.log(cards);
+
+    function changePage(i) {
+        console.log(i);
+        currentPage = i;
+        let firstIndex = i * 15;
+        let lastIndex = firstIndex + 15;
+        console.log(firstIndex + " " + lastIndex);
+        console.log(cards);
+        if (lastIndex >= cards.length) {
+            selectedCards = cards.slice().splice(firstIndex, cards.length);
+        }
+        else {
+            selectedCards = cards.slice().splice(firstIndex, lastIndex+1)
+        }
     }
     
     let divClass = 'w-full md:block md:w-auto pr-8';
@@ -37,8 +62,6 @@
     const toggleDrawer = () => {
         drawerHidden = !drawerHidden;
     };
-
-    let pageNumber = Math.ceil(cards.length / 15);
 
     let activateClickOutside = true;
     let breakPoint = 1024;
@@ -170,18 +193,14 @@
             <RangeSlider values={[3]} step={1}/>
         </div>
         <div class="apply">
-            <Button on:click={() => setTags()}>apply filters</Button>
+            <Button color="red" on:click={() => setTags()}>apply filters</Button>
         </div>
       </SidebarGroup>
     </SidebarWrapper>
   </Sidebar>
   </Drawer>
 
-  <div>
-    
-  </div>
-
-  <div class="flex px-4 mx-auto w-full">
+  <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
     <main class="lg:ml-72 w-full mx-auto">
         <Gallery>
             {#each selectedCards as {name, url, keyword, descr}}	
@@ -204,6 +223,13 @@
                 {/if}
             {/each}
         </Gallery>
+        <div class="pageNumbers">
+            {#each pageArray as num, i (num)}
+                <Button pill={true} color="red" size="xs" on:click={() => changePage(i)}>
+                    {num}
+                </Button>
+            {/each}
+          </div>
       <slot />
     </main>
   </div>
@@ -250,7 +276,7 @@
         margin: 5px;
         padding: 10px;
         width: 30vw;
-        box-shadow: 1px 1px 5px black;
+        box-shadow: 1px 1px 5px rgb(167, 167, 167);
     }
 
     /* The "show" class is added to the filtered elements */
@@ -260,6 +286,10 @@
 
     .apply {
         padding-top: 40px;
+    }
+
+    .pageNumbers {
+        margin: 0 auto;
     }
 
     /* Style the list */
