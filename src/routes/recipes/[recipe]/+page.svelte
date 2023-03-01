@@ -20,53 +20,27 @@
 	} else {
 		ingredientText = `${data.data.ingredients.length} ingredients`;
 	}
-
-	let contentStyle = ""
-	
-	let innerWidth
-	let innerHeight
-	$: aspectRatio = innerWidth / innerHeight
-
-	if (aspectRatio > 1) {
-		contentStyle = "flex flex-wrap-reverse"
-	} else {
-		contentStyle = "flex flex-wrap flex-col"
-	}
-
-	//const image = new Image();
-	//image.src = data.data.photo;
 </script>
 
-<svelte:window bind:innerWidth bind:innerHeight />
-
-<div class="m-5 space-y-3">
+<div class="m-10 space-y-3">
 	<div class="">
-		<span id="title">{data.data.title}</span> ~ <span>{data.data.price}</span> $
+		<span class='text-3xl'>{data.data.title}</span> ~ <span>{data.data.price}</span> $
 	</div>
 	<div>
 		<span>{stars}</span> ~ <span>{difficultyText}</span> ~ <span>{ingredientText}</span>
 	</div>
-	<div id="country">{data.data.country}</div>
+	<div class="text-xl">{data.data.country}</div>
 	<!-- Here is where tags go? Not sure how we are doing tags atm -->
 
-	<div class={contentStyle}>
-		<div>
+	<div class="flex flex-wrap">
+		<div class="mr-5">
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<img class="rounded" src={data.data.photo} />
+			<img class="rounded max-h-fit" src={data.data.photo} />
+		</div>
+		<div class="space-y-5">
+			<div class="max-w-screen-sm">{data.data.culture}</div>
+			<div class="max-w-screen-sm">{data.data.recipe}</div>
 		</div>
 		
-		<div>
-			<div>{data.data.culture}</div>
-			<div>{data.data.recipe}</div>
-		</div>
 	</div>
 </div>
-
-<style>
-	#title {
-		font-size: 2rem;
-	}
-	#country {
-		font-size: 1.5rem;
-	}
-</style>
