@@ -1,5 +1,5 @@
 <script>
-	import RangeSlider from 'svelte-range-slider-pips'
+    import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
     import '../../../app.css';
     import { page } from '$app/stores';
@@ -102,6 +102,18 @@
         ingredients = ingredients;
     }
 
+    $: instructions = [];
+
+    function addInstruction(){
+        instructions.push({Step:"Mix"});
+        instructions = instructions;
+    }
+
+    function removeInstruction(index){
+        instructions.splice(index,1);
+        instructions = instructions;
+    }
+
     let avatar, fileinput;
     const onFileSelected =(e)=>{
     let image = e.target.files[0];
@@ -130,70 +142,79 @@
     </NavUl>
 </Navbar>
 
-<main>
-    <div>
-        <div>
-            <div class = "flex content-center">
-                <div>Recipe Name:</div>
-                <textarea class = "sliver"></textarea>
-            </div>
-            <div>Description:</div>
-            <textarea></textarea>
-            <div>Ingredients:</div>
-            {#each ingredients as ingredient, i (ingredient)}
-            <div>
-                Name:<textarea>{ingredient.Name}</textarea>
-                Amount:<textarea>{ingredient.Amount}</textarea>
-                <button on:click={() => removeIngredient(i)}> Remove </button>
-            </div>
-            {/each}
-            <button on:click={addIngredient}>Add Ingredient</button>
-        </div>
-        <div>
-            <div id="app">
-                {#if avatar}
-                <img class="avatar" src="{avatar}" alt="d" />
-                {:else}
-                <img class="avatar" src="https://png.pngtree.com/png-vector/20220607/ourmid/pngtree-restaurant-food-delivery-icon-png-image_4852575.png" alt="" /> 
-                {/if}
-                <img class="upload" src="https://static.thenounproject.com/png/625182-200.png" alt="" on:click={()=>{fileinput.click();}} />
-                <div class="chan" on:click={()=>{fileinput.click();}}>Choose Image</div>
-                <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} >
-            </div>
-            <div class = "flex content-center">
-                <div>Tags:</div>
-                <div>
-                    <Tags
-                    on:tags={handleTags}
-                    addKeys={[9]}
-                    maxTags={5}
-                    allowPaste={true}
-                    allowDrop={true}
-                    splitWith={"/"}
-                    onlyUnique={false}
-                    removeKeys={[27]}
-                    placeholder={"'vegan', 'vegetarian', etc"}
-                    autoComplete={tagList}
-                    name={"custom-name"}
-                    id={"custom-id"}
-                    allowBlur={true}
-                    disable={false}
-                    minChars={3}
-                    onlyAutocomplete
-                    />
-                </div>
-            </div>
-            <div>Instructions:</div>
-            <textarea></textarea>
-        </div>
+<main class = "grid grid-cols-2 gap-2" style="background-color:aliceblue;">
+    <div id="app">
+        <div class = "flex items-center">Recipe Name:<textarea class = "sliver"></textarea></div>
     </div>
-    <button on:click={()=>window.history.back()}>Cancel</button>
-    <button>Submit</button>
+    <div id="app">
+        {#if avatar}
+        <img class="avatar" src="{avatar}" alt="d" />
+        {:else}
+        <img class="avatar" src="https://png.pngtree.com/png-vector/20220607/ourmid/pngtree-restaurant-food-delivery-icon-png-image_4852575.png" alt="" /> 
+        {/if}
+        <img class="upload" src="https://static.thenounproject.com/png/625182-200.png" alt="" on:click={()=>{fileinput.click();}} />
+        <div class="chan" on:click={()=>{fileinput.click();}}>Choose Image</div>
+        <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} >
+    </div>
+    <div id="app">
+        <div>Description:</div>
+        <textarea class = "fullBox"></textarea>
+    </div>
+    <div clas="flex justify-center items-center">Tags:
+        <Tags
+        on:tags={handleTags}
+        addKeys={[9]}
+        maxTags={5}
+        allowPaste={true}
+        allowDrop={true}
+        splitWith={"/"}
+        onlyUnique={false}
+        removeKeys={[27]}
+        placeholder={"'vegan', 'vegetarian', etc"}
+        autoComplete={tagList}
+        name={"custom-name"}
+        id={"custom-id"}
+        allowBlur={true}
+        disable={false}
+        minChars={3}
+        onlyAutocomplete
+        />
+    </div>
+    <div id="app">
+        <div>Ingredients:</div>
+        {#each ingredients as ingredient, i (ingredient)}
+        <div class = "flex items-center">
+            Name:<textarea class = "sliver">{ingredient.Name}</textarea>
+            Amount:<textarea class = "sliver">{ingredient.Amount}</textarea>
+            <button on:click={() => removeIngredient(i)}> Remove </button>
+        </div>
+        {/each}
+        <button on:click={addIngredient}>Add Ingredient</button>
+    </div>
+    <div id="app">
+        <div>Instructions:</div>
+        {#each instructions as instruction, i (instruction)}
+        <div class = "flex items-center">
+            Step {i+1}:
+            <textarea class = "sliver">{instruction.Step}</textarea>
+            <button on:click={() => removeInstruction(i)}> Remove </button>
+        </div>
+        {/each}
+        <button on:click={addInstruction}>Add Instruction</button>
+    </div>
 </main>
+<div  class = "flex items-center justify-center" style="background-color:aliceblue; padding: 40px;">
+    <button class = "cancel" on:click={()=>window.history.back()}>Cancel</button>
+    <button class = "submit">Submit</button>
+</div>
 
 <style global>
     .sliver {
         height: 50px;
+    }
+    .fullBox {
+        height: 150px;
+        width: 250px;
     }
     button {
         border-style: solid;
@@ -201,6 +222,17 @@
         border-radius: 100px;
         border-width: 4px;
         background-color: #3ca4ff;
+    }
+    .cancel{
+        background-color: #757a80;
+        border-color: #757a80;
+        display:flex;
+		align-items:flex-end;
+		justify-content:flex-end;
+    }
+    .submit{
+        background-color: #e24720;
+        border-color: #e24720;
     }
     .upload{
 		display:flex;
@@ -220,15 +252,13 @@
 		flex-flow:column;
     }
     main {
-        margin-left: 260px; /* Same width as the sidebar + left position in px */
-        font-size: 28px; /* Increased text to enable scrolling */
-        padding: 0px 10px;
+        margin-left: 0px; /* Same width as the sidebar + left position in px */
+        font-size: 18px; /* Increased text to enable scrolling */
+        padding: 10px 380px;
+        min-width: 100vw;
         max-width: 100vw;
-        display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-    /* 	background-color: red; */
     }
 
     h4 {
