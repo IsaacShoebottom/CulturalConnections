@@ -164,15 +164,17 @@
   <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
     <main>
         <Gallery>
-            {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr}}	
-                <div class="show column">
-                    <div class="content">
-                        <img src={url} alt={name} style="width:100%">
-                        <h4>{name}</h4>
-                        <h3>{country}</h3>
-                        <span class="stars">{star.repeat(stars)}</span>
+            {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr, href}}	
+                <a href={href}>
+                    <div class="show column">
+                        <div class="content">
+                            <img src={url} alt={name} style="width:100%">
+                            <h4>{name}</h4>
+                            <h3>{country}</h3>
+                            <span class="stars">{star.repeat(stars)}</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             {/each}
         </Gallery>
         <div class="pageNumbers">
