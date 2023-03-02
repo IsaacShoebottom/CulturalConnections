@@ -1,0 +1,16 @@
+{ 
+	"title": "Steak and Eggs", 
+	"price": 15.99,
+	"stars": 4,
+	"difficulty": "medium",
+	"country": "USA",
+	"ingredients": {
+		"8 ounce steak": "1 steak",
+		"eggs": "2 eggs",
+		"butter": "2 tbsp",
+		"salt and pepper": "to taste"
+	},
+	"culture": "Steak and eggs is a classic American dish that has been enjoyed for decades. It is a simple yet satisfying meal that consists of a grilled or pan-fried steak and a side of scrambled or fried eggs. While it is not clear exactly when and where the dish originated, it is believed to have emerged as a popular breakfast item in the mid-20th century. One theory is that steak and eggs became popular among cowboys and ranchers in the Western United States. They would often have a hearty breakfast of steak and eggs to fuel them for a day of work on the ranch. As the American West became more settled and urbanized, the dish became more widely known and adopted by diners and restaurants across the country. Another theory is that steak and eggs was popularized by athletes and bodybuilders in the mid-20th century. Protein-rich foods like steak and eggs were seen as essential for building muscle and strength, and the dish became a staple in many training diets. This helped to cement its status as a classic American dish. Today, steak and eggs is enjoyed by people of all walks of life, and it remains a popular breakfast item in many diners and restaurants. It is often served with hash browns or home fries and toast or English muffins. While it may not be the healthiest breakfast option, it is certainly a delicious and satisfying treat that many Americans continue to enjoy.",
+	"recipe": "Remove the steak from the refrigerator and let it come to room temperature for about 30 minutes before cooking. This will help it cook more evenly. Preheat a large skillet over medium-high heat. Add 1 tablespoon of butter to the pan. Season the steak generously with salt and pepper. Place it in the skillet and cook for 3-4 minutes per side for medium-rare doneness, or longer if desired. Remove the steak from the pan and let it rest on a plate. In the same skillet, add another tablespoon of butter. Crack two eggs into the skillet and cook until the whites are set but the yolks are still runny. To serve, place the steak on a plate and top with the fried eggs. Garnish with chopped herbs if desired.",
+	"photo": "steak-and-eggs.jpg"
+}

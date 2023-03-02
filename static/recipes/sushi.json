@@ -1,0 +1,21 @@
+{ 
+	"title": "Sushi", 
+	"price": 11.99,
+	"stars": 4,
+	"difficulty": "hard",
+	"country": "Japan",
+	"ingredients": {
+		"sushi rice": "2 cups",
+		"water": "2 cups",
+		"rice vinegar": "1/4 cup",
+		"sugar": "2 tbsp",
+		"salt": "1 tsp",
+		"nori seaweed": "5-6 sheets",
+		"sliced raw fish, or other assorted fillings": "as needed",
+		"wasabi paste": "optional",
+		"soy sauce": "optional"
+	},
+	"culture": "Sushi is a traditional Japanese dish that has been enjoyed for centuries. The history of sushi can be traced back to the 2nd century AD when it was first mentioned in Chinese records. Originally, sushi was a way of preserving fish by wrapping it in fermented rice, which was discarded before the fish was eaten. Over time, sushi evolved into a delicacy that was enjoyed by the Japanese aristocracy. In the early 19th century, sushi underwent a major transformation when Yohei Hanaya, a chef in Tokyo, developed a new type of sushi called nigiri-zushi, which is the most common form of sushi enjoyed today. Nigiri-zushi is made by pressing a small ball of vinegared rice into a piece of fresh fish or other seafood, and is typically served with wasabi and soy sauce. Sushi has become an important part of Japanese culture, with many different types of sushi available, each with its own unique flavor and texture. Sushi is often eaten as a special treat, and is a popular choice for celebrations and special occasions. In addition to traditional sushi restaurants, sushi can now be found in many countries around the world, and has become a global culinary phenomenon. Despite its international popularity, sushi remains deeply rooted in Japanese culture and tradition, and is an important symbol of Japanese cuisine and hospitality.",
+	"recipe": "Rinse the sushi rice in cold water until the water runs clear. Drain the rice and put it in a pot with 2 cups of water. Bring the water to a boil, then reduce the heat to low and cover the pot. Cook the rice for about 15 minutes or until the water has been absorbed and the rice is tender. While the rice is cooking, make the sushi vinegar by combining the rice vinegar, sugar, and salt in a small saucepan. Heat the mixture over low heat until the sugar and salt have dissolved. Set the mixture aside to cool. Once the rice is done cooking, transfer it to a large bowl and add the sushi vinegar. Mix the rice gently with a wooden spoon or rice paddle until the vinegar is evenly distributed and the rice is sticky. Lay a sheet of nori seaweed on a bamboo sushi mat or a sheet of plastic wrap. With wet hands, spread a thin layer of sushi rice evenly over the nori, leaving a 1-inch border at the top. Add the fillings of your choice in a line across the center of the rice. Roll the sushi tightly, using the mat or plastic wrap to help you. Wet the top border of the nori to seal the roll closed. Repeat the process with the remaining nori sheets and rice. Slice the sushi rolls into 1-inch thick pieces using a sharp knife. Serve the sushi with wasabi paste and soy sauce on the side.",
+	"photo": "sushi.jpg"
+}

@@ -1,0 +1,20 @@
+{ 
+	"title": "Steak", 
+	"price": 14.99,
+	"stars": 4,
+	"difficulty": "medium",
+	"country": "USA",
+	"ingredients": {
+		"8 ounce steak": "2 steak",
+		"olive oil": "2 tbsp",
+		"butter": "2 tbsp",
+		"garlic": "2 cloves (minced)", 
+		"thyme": "1 tsp",
+		"rosemary": "1 tsp",
+		"parsley": "1 tsp",
+		"salt and pepper": "to taste"
+	},
+	"culture": "The history and culture of steak are deeply intertwined with human civilization, as meat has been a central part of human diets for thousands of years. Steak, which is a cut of meat typically taken from the beef cow, has been enjoyed by humans for centuries. The ancient Greeks and Romans are known to have eaten beef, and the early Europeans were also known to enjoy beef as a luxury food. However, it wasn't until the 19th century that the modern concept of steak as we know it today began to take shape. In the United States, the popularity of steak began to rise during the mid-1800s, when cattle were driven from Texas to Kansas and Missouri to be sold to eastern markets. With the development of the railroad, it became easier to transport cattle to different parts of the country, and the demand for beef grew. In the early 1900s, steak became a symbol of American prosperity and success. The rise of the middle class meant that more people could afford to eat meat regularly, and steak became a staple food in many American households. The popularity of steak was further fueled by the growth of the restaurant industry, with many high-end steakhouses opening in major cities across the country. Today, steak remains a popular food around the world, and different cultures have developed their own unique ways of preparing and serving it. In Argentina, for example, the traditional dish of asado involves grilling various cuts of beef over an open flame, while in Japan, wagyu beef is highly prized for its marbled texture and rich flavor. The culture of steak also extends to social rituals, such as the tradition of the \"business lunch\" or the \"power dinner\" where deals are made over a meal of steak and wine. Steak is also often associated with celebrations, such as birthdays, graduations, and other special occasions.",
+	"recipe": "Remove the steaks from the refrigerator and let them sit at room temperature for 30 minutes. Preheat the oven to 400°F (200°C). Season the steaks generously with salt and pepper on both sides. Heat the olive oil in a large oven-safe skillet over high heat until it begins to smoke. Add the steaks to the skillet and cook for 2-3 minutes per side, or until nicely seared and browned. Add the butter, garlic, thyme, rosemary, and parsley to the skillet and stir until the butter is melted and the herbs are fragrant. Transfer the skillet to the oven and roast for 5-8 minutes, or until the internal temperature of the steaks reaches 135°F (57°C) for medium-rare. Remove the skillet from the oven and let the steaks rest for 5 minutes before serving. Serve the steaks with your choice of sides, such as roasted vegetables, mashed potatoes, or a salad.",
+	"photo": "steak.jpg"
+}
