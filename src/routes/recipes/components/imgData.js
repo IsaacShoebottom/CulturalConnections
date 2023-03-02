@@ -6,7 +6,7 @@ export const presetCards = [
                 country: "canada",
                 difficulty: "medium",
                 price: "low",
-                stars: 4,
+                stars: 3,
                 descr: "Canada's signature!",
                 href: "/recipes/poutine"
         },
@@ -28,7 +28,7 @@ export const presetCards = [
                 country: "united kingdom",
                 difficulty: "low",
                 price: "low",
-                stars: 4,
+                stars: 3,
                 descr: "Bacon Lettuce Tomatoe",
                 href: "/recipes/blt"
         },
@@ -50,7 +50,7 @@ export const presetCards = [
                 country: "united states",
                 difficulty: "medium",
                 price: "high",
-                stars: 3,
+                stars: 4,
                 descr: "Lots of protein",
                 href: "/recipes/steak-and-eggs"
         },
@@ -72,7 +72,7 @@ export const presetCards = [
                 country: "japan",
                 difficulty: "high",
                 price: "medium",
-                stars: 5,
+                stars: 4,
                 descr: "Not your average california roll!",
                 href: "/recipes/sushi"
         },
@@ -105,7 +105,7 @@ export const presetCards = [
                 country: "canada",
                 difficulty: "medium",
                 price: "low",
-                stars: 4,
+                stars: 3,
                 descr: "Canada's signature!",
                 href: "/recipes/poutine"
         },
@@ -127,7 +127,7 @@ export const presetCards = [
                 country: "united kingdom",
                 difficulty: "low",
                 price: "low",
-                stars: 4,
+                stars: 3,
                 descr: "Bacon Lettuce Tomatoe",
                 href: "/recipes/blt"
         },
@@ -149,7 +149,7 @@ export const presetCards = [
                 country: "united states",
                 difficulty: "medium",
                 price: "high",
-                stars: 3,
+                stars: 4,
                 descr: "Lots of protein",
                 href: "/recipes/steak-and-eggs"
         },
@@ -160,7 +160,7 @@ export const presetCards = [
                 country: "japan",
                 difficulty: "low",
                 price: "low",
-                stars: 2,
+                stars: 3,
                 descr: "On a budget?",
                 href: "/recipes/instant-noodles"
         },
@@ -171,7 +171,7 @@ export const presetCards = [
                 country: "japan",
                 difficulty: "high",
                 price: "medium",
-                stars: 5,
+                stars: 4,
                 descr: "Not your average california roll!",
                 href: "/recipes/sushi"
         },

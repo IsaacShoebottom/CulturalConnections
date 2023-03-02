@@ -1,7 +1,7 @@
 { 
 	"title": "Instant Noodles", 
 	"price": 0.99,
-	"stars": 4,
+	"stars": 3,
 	"difficulty": "easy",
 	"country": "Japan",
 	"ingredients": {
