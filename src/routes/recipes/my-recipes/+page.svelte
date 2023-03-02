@@ -165,7 +165,7 @@
     <main>
         <Gallery>
             {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr, href}}	
-                <a href={href}>
+                <a class="hover" href={href}>
                     <div class="show column">
                         <div class="content">
                             <img src={url} alt={name} style="width:100%">
@@ -195,6 +195,13 @@
   </div>
 
   <style global>
+	  .hover {
+		  transition: ease .1s;
+	  }
+.hover:hover:not(:active) {
+	transform: scale(1.07);
+}
+
   main {
       font-size: 28px; /* Increased text to enable scrolling */
       padding: 0px 10px;
