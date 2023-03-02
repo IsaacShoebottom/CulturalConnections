@@ -10,6 +10,7 @@
         NavLi,
         NavUl,
         NavHamburger,
+        Button,
         Sidebar,
         SidebarGroup,
         SidebarItem,
@@ -18,7 +19,7 @@
         CloseButton,
         SidebarDropdownWrapper
     } from 'flowbite-svelte';
-    import { Cog } from 'svelte-heros-v2';
+    import { Camera } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
     
     let divClass = 'w-full md:block md:w-auto pr-8';
@@ -142,97 +143,91 @@
     </NavUl>
 </Navbar>
 
-<main class = "grid grid-cols-2 gap-2" style="background-color:aliceblue;">
-    <div id="app">
-        <div class = "flex items-center">Recipe Name:<textarea class = "sliver"></textarea></div>
-    </div>
-    <div id="app">
-        {#if avatar}
-        <img class="avatar" src="{avatar}" alt="d" />
-        {:else}
-        <img class="avatar" src="https://png.pngtree.com/png-vector/20220607/ourmid/pngtree-restaurant-food-delivery-icon-png-image_4852575.png" alt="" /> 
-        {/if}
-        <img class="upload" src="https://static.thenounproject.com/png/625182-200.png" alt="" on:click={()=>{fileinput.click();}} />
-        <div class="chan" on:click={()=>{fileinput.click();}}>Choose Image</div>
-        <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} >
-    </div>
-    <div id="app">
-        <div>Description:</div>
-        <textarea class = "fullBox"></textarea>
-    </div>
-    <div clas="flex justify-center items-center">Tags:
-        <Tags
-        on:tags={handleTags}
-        addKeys={[9]}
-        maxTags={5}
-        allowPaste={true}
-        allowDrop={true}
-        splitWith={"/"}
-        onlyUnique={false}
-        removeKeys={[27]}
-        placeholder={"'vegan', 'vegetarian', etc"}
-        autoComplete={tagList}
-        name={"custom-name"}
-        id={"custom-id"}
-        allowBlur={true}
-        disable={false}
-        minChars={3}
-        onlyAutocomplete
-        />
-    </div>
-    <div id="app">
-        <div>Ingredients:</div>
-        {#each ingredients as ingredient, i (ingredient)}
-        <div class = "flex items-center">
-            Name:<textarea class = "sliver">{ingredient.Name}</textarea>
-            Amount:<textarea class = "sliver">{ingredient.Amount}</textarea>
-            <button on:click={() => removeIngredient(i)}> Remove </button>
+<main class="mt-10" style="background-color:aliceblue; padding: 50px;">
+    <div>
+        <div id="app">
+            {#if avatar}
+            <img class="avatar" src="{avatar}" alt="d" />
+            {:else}
+            <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg" alt="" /> 
+            {/if}
+            <Button gradient color="purpleToPink" on:click={()=>{fileinput.click();}} class="!p-2"><Camera/>Upload Image</Button>
+            <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} >
         </div>
-        {/each}
-        <button on:click={addIngredient}>Add Ingredient</button>
-    </div>
-    <div id="app">
-        <div>Instructions:</div>
-        {#each instructions as instruction, i (instruction)}
-        <div class = "flex items-center">
-            Step {i+1}:
-            <textarea class = "sliver">{instruction.Step}</textarea>
-            <button on:click={() => removeInstruction(i)}> Remove </button>
+        <div class = "flex items-center grid grid-rows-2 mr-10 ml-10">
+            <h5>Recipe Name:</h5>
+            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Recipe Title" required>
+            <h5 class="mt-10">Recipe Description:</h5>
+            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
         </div>
-        {/each}
-        <button on:click={addInstruction}>Add Instruction</button>
+        <div class="flex items-center grid grid-rows-3 mr-10 ml-10 mt-10">
+            <h5>Country of origin:</h5>
+            <select bind:value={selected} style="max-width: 150px;">
+                {#each options as value}<option {value}>{value}</option>{/each}
+            </select>
+        </div>
+        <div class = "flex items-center grid grid-rows-2 mr-10 ml-10">
+            <h5>Tags:</h5>
+            <Tags
+            on:tags={handleTags}
+            addKeys={[9]}
+            maxTags={5}
+            allowPaste={true}
+            allowDrop={true}
+            splitWith={"/"}
+            onlyUnique={false}
+            removeKeys={[27]}
+            placeholder={"'vegan', 'vegetarian', etc"}
+            autoComplete={tagList}
+            name={"custom-name"}
+            id={"custom-id"}
+            allowBlur={true}
+            disable={false}
+            minChars={3}
+            onlyAutocomplete
+            />
+        </div>
+        <div id="app" class="mt-10">
+            <h1 class="mb-5">Ingredients:</h1>
+            {#each ingredients as ingredient, i (ingredient)}
+            <div class = "flex items-center mb-5">
+                <h5 class="mr-2">Name:</h5>
+                <input placeholder='Ingredient Name' type="text" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <h5 class="mr-2 ml-5">Amount:</h5>
+                <input placeholder='Ingredient Amount' type="text" id="small-input" class="mr-5 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <Button pill={true} color="red" size="xs" on:click={() => removeIngredient(i)}> Remove </Button>
+            </div>
+            {/each}
+            <Button on:click={addIngredient}>Add Ingredient</Button>
+        </div>
+        <div id="app" class="mt-10">
+            <h1 class="mb-5">Instructions:</h1>
+            {#each instructions as instruction, i (instruction)}
+            <div class = "flex items-center mb-5">
+                <div style="min-width: 60px">Step {i+1}:</div>
+                <input placeholder='Instruction text' type="text" id="small-input" class="mr-5 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <Button pill={true} color="red" size="xs" on:click={() => removeInstruction(i)}> Remove </Button>
+            </div>
+            {/each}
+            <Button on:click={addInstruction}>Add Instruction</Button>
+        </div>
     </div>
 </main>
-<div  class = "flex items-center justify-center" style="background-color:aliceblue; padding: 40px;">
-    <button class = "cancel" on:click={()=>window.history.back()}>Cancel</button>
-    <button class = "submit">Submit</button>
+
+<div  class = "flex items-center justify-center m-10">
+    <Button color="red" class="mr-10" on:click={()=>window.history.back()}>Cancel</Button>
+    <Button href="/" gradient color="cyanToBlue" class="submit">Submit</Button>
 </div>
 
 <style global>
-    .sliver {
-        height: 50px;
+    #app{
+	    display:flex;
+		align-items:center;
+		justify-content:center;
+		flex-flow:column;
     }
-    .fullBox {
-        height: 150px;
-        width: 250px;
-    }
-    button {
-        border-style: solid;
-        border-color: #3ca4ff;
-        border-radius: 100px;
-        border-width: 4px;
-        background-color: #3ca4ff;
-    }
-    .cancel{
-        background-color: #757a80;
-        border-color: #757a80;
-        display:flex;
-		align-items:flex-end;
-		justify-content:flex-end;
-    }
-    .submit{
-        background-color: #e24720;
-        border-color: #e24720;
+    div {
+        overflow: hidden;
     }
     .upload{
 		display:flex;
@@ -241,119 +236,9 @@
 		cursor:pointer;
 	}
     .avatar{
-		display:flex;
 		height:200px;
 		width:200px;
+        margin-bottom: 5px;
 	}
-    #app{
-	display:flex;
-		align-items:center;
-		justify-content:center;
-		flex-flow:column;
-    }
-    main {
-        margin-left: 0px; /* Same width as the sidebar + left position in px */
-        font-size: 18px; /* Increased text to enable scrolling */
-        padding: 10px 380px;
-        min-width: 100vw;
-        max-width: 100vw;
-        align-items: center;
-        justify-content: center;
-    }
 
-    h4 {
-        font-size: 2rem;
-        margin: 0;
-    }
-        
-    p {
-        margin: 0 0 .5rem;
-        position: relative;
-    }
-
-    /* Create three equal columns */
-    .column {
-        width: var(--columnSize);
-        display: none;
-        justify-content: center;
-        margin: 20px 8px;
-    }
-
-
-    /* Content */
-    .content {
-        padding: 20px;
-        width:250px;
-        max-width:250px;
-        min-width:250px;
-        display: inline-block;
-        background-color: white;
-        margin: 5px;
-        padding: 10px;
-        width: 30vw;
-        box-shadow: 1px 1px 5px black;
-    }
-
-    /* The "show" class is added to the filtered elements */
-    .show {
-        display: flex;
-    }
-
-    .breadcrumbs {
-        padding: 20px;
-    }
-
-    .sidenav {
-        width: 250px;
-        height: 400px;
-        position: fixed;
-        z-index: 1;
-        top: 60px;
-        left: 10px;
-        background: #eee;
-        overflow-x: hidden;
-        padding: 10px;
-    }
-
-    .main {
-        margin-left: 260px; /* Same width as the sidebar + left position in px */
-        font-size: 28px; /* Increased text to enable scrolling */
-        padding: 0px 10px;
-    }
-
-    @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    }
-
-    /* Style the list */
-    ul.breadcrumb {
-        padding: 10px 16px;
-        list-style: none;
-        background-color: #eee;
-    }
-
-    /* Display list items side by side */
-    ul.breadcrumb li {
-        display: inline;
-        font-size: 18px;
-    }
-
-    /* Add a slash symbol (/) before/behind each list item */
-    ul.breadcrumb li+li:before {
-        padding: 8px;
-        color: black;
-        content: "/\00a0";
-    }
-
-    /* Add a color to all links inside the list */
-    ul.breadcrumb li a {
-        color: #0275d8;
-        text-decoration: none;
-    }
-
-    /* Add a color on mouse-over */
-    ul.breadcrumb li a:hover {
-        color: #01447e;
-        text-decoration: underline;
-    }
 </style>
