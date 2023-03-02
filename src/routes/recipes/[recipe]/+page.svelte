@@ -34,7 +34,7 @@
 	recipeArray.pop(); // Remove the last empty element
 </script>
 
-<div class="m-10 space-y-3 overflow-auto">
+<div class="m-10 space-y-3 overflow-auto text-left">
 	<div class="flex place-items-center flex-col text-left">
 		<div>
 			<span class="text-3xl">{data.data.title}</span> ~
@@ -48,7 +48,7 @@
 		<!-- Here is where tags go? Not sure how we are doing tags atm -->
 	</div>
 
-	<div class="flex flex-wrap justify-center place-items-center">
+	<div class="flex flex-wrap justify-center ">
 		<div class="max-w-screen-sm w-full">
 			<div class="mr-5 mb-5">
 				<!-- svelte-ignore a11y-missing-attribute -->
