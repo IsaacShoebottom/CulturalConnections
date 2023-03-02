@@ -29,6 +29,9 @@
 	}
 
 	let ingredientsArray = Object.entries(ingredients);
+
+	let recipeArray = data.data.recipe.split(".");
+	recipeArray.pop(); // Remove the last empty element
 </script>
 
 <div class="m-10 space-y-3 overflow-auto">
@@ -46,18 +49,26 @@
 	</div>
 
 	<div class="flex flex-wrap justify-center place-items-center">
-		<div class="mr-5 mb-5">
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img class="rounded-xl max-w-xl max-h-xl w-full" src={data.data.photo} />
-		</div>
-		<div class="space-y-5">
-			<div class="max-w-screen-sm">{data.data.culture}</div>
-			<div>
+		<div class="max-w-screen-sm w-full">
+			<div class="mr-5 mb-5">
+				<!-- svelte-ignore a11y-missing-attribute -->
+				<img class="rounded-xl max-w-screen-sm max-h-xl w-full" src={data.data.photo} />
+			</div>
+			<div class="max-w-screen-sm w-full mb-5">
 				{#each ingredientsArray as ingredient}
-					<ul>{ingredient[0]}: {ingredient[1]}</ul>
+					<div>• {ingredient[0]}: {ingredient[1]}</div>
 				{/each}
 			</div>
-			<div class="max-w-screen-sm">{data.data.recipe}</div>
+		</div>
+		
+		<div class="space-y-5">
+			<div class="max-w-screen-sm">{data.data.culture}</div>
+			
+			<div class="max-w-screen-sm">
+				{#each recipeArray as step, index}
+					<div class="mb-1">{index + 1}. {step}</div>
+				{/each}
+			</div>
 		</div>
 	</div>
 </div>
