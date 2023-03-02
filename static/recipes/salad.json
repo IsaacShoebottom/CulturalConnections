@@ -1,0 +1,22 @@
+{ 
+	"title": "Salad", 
+	"price": 6.99,
+	"stars": 2,
+	"difficulty": "medium",
+	"country": "Greece",
+	"ingredients": {
+		"mixed greens": "4 cups",
+		"tomatoes": "1 tomato (diced)",
+		"cucumber": "1/2 cucumber (sliced)",
+		"red onion": "1/4 onion (sliced)", 
+		"croutons": "1/2 cup",
+		"olive oil": "1/4 cup",
+		"red wine vinegar": "2 tbsp",
+		"dijon mustard": "1 tbsp",
+		"garlic": "1 clove (minced)",
+		"salt and pepper": "to taste"
+	},
+	"culture": "Salads have been a part of human cuisine for thousands of years, and their history and culture vary depending on the region and the ingredients used. However, the traditional salad as we know it today, made with a mixture of greens and vegetables, originated in ancient Greece. The ancient Greeks were known for their love of fresh vegetables and herbs, and they often ate them raw or boiled. They would season these vegetables with salt, vinegar, and olive oil, creating a simple salad that is still enjoyed today. The word \"salad\" actually comes from the Latin word \"salata,\" which means \"salted.\" Throughout history, salads have been enjoyed by people of all cultures and social classes. In medieval Europe, salads were often made with herbs and wild greens, and were served as a side dish or appetizer. In the 18th century, the French popularized salads made with lettuce and other leafy greens, and introduced the concept of using dressings to flavor the vegetables. In the United States, salads became popular in the early 20th century, when health experts began promoting them as a nutritious and low-calorie meal option. Today, salads are enjoyed all over the world, and can be made with a wide variety of ingredients, including fruits, nuts, cheeses, meats, and grains.",
+	"recipe": "Start by washing and drying the mixed greens, and then place them in a large salad bowl. Add the diced tomato, sliced cucumber, and thinly sliced red onion to the bowl, and toss to combine. Add the croutons to the bowl and give everything a gentle toss. In a small bowl, whisk together the olive oil, red wine vinegar, Dijon mustard, minced garlic, salt, and pepper until well combined. Drizzle the dressing over the salad, and toss again until everything is evenly coated. Serve the salad immediately, and enjoy!",
+	"photo": "salad.jpg"
+}

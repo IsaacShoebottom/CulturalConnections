@@ -1,0 +1,18 @@
+{ 
+	"title": "BLT", 
+	"price": 11.99,
+	"stars": 3,
+	"difficulty": "medium",
+	"country": "United Kingdom",
+	"ingredients": {
+		"bacon": "8 slices",
+		"bread": "4 slices",
+		"lettuce": "4 leaves",
+		"tomatoes": "2 tomatoes (sliced)", 
+		"mayonnaise": "2-4 tbsp",
+		"salt and pepper": "to taste"
+	},
+	"culture": "The BLT sandwich, also known as a bacon, lettuce, and tomato sandwich, is a classic American sandwich that has been enjoyed for over a century. The origins of the BLT are somewhat shrouded in mystery, with different accounts claiming different origin stories. One popular theory is that the BLT sandwich was created in the early 1900s by the aristocratic classes who frequented tea rooms and hotels. Another theory suggests that the sandwich was created in the 1920s or 1930s in the southern United States, where bacon was a staple food and tomatoes were plentiful. Regardless of its origins, the BLT sandwich quickly became a beloved classic in American cuisine, and by the 1950s, it was a staple on diner and restaurant menus throughout the country. The BLT sandwich has become an important part of American culture, with many people considering it a quintessential part of the country's culinary heritage. It is often associated with summer and outdoor activities, such as picnics and barbecues, and is a popular choice for lunch or a light dinner.",
+	"recipe": "Cook the bacon in a skillet over medium heat until crispy. Remove from the skillet and drain on paper towels. Toast the bread, if desired. Spread mayonnaise on one side of each slice of bread. Layer lettuce leaves, bacon slices, and tomato slices on one slice of bread. Season with salt and pepper, to taste. Top with the remaining slice of bread. Cut the sandwich in half and serve immediately.",
+	"photo": "blt.jpg"
+}

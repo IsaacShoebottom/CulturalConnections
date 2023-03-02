@@ -33,7 +33,6 @@
 	</div>
 </div>
 
-
 <script lang="ts">
     import './fonts.css';
 	import { onMount } from "svelte";
@@ -49,7 +48,7 @@
 	let ctx, ctx2;
 	let drewRecently = false;
 	let dotcoords = [];
-	
+	let star = "⭐";
     onMount(async () => {
 		
 		while (!worldmapElement.complete || worldmapElement.naturalHeight === 0) {await sleep(100)};
@@ -99,17 +98,13 @@
 		// 	ctx.fillRect(x-100, y-100, 300, 300);
 		// });
 
-
 		const worldMapAspectRatio = worldmapElement.naturalHeight / worldmapElement.naturalWidth;
 		
 		
 		// get canvas context
 		ctx = canvasElement.getContext("2d")
 		ctx2 = canvasElement2.getContext("2d")
-
 		
-		
-	
 		new ResizeObserver(draw).observe(mapContainer);
 		
 		async function draw() {
@@ -166,8 +161,40 @@
 
 </script>
 
+<ul class="breadcrumb">
+    <li>Home</li>
+</ul>
+
+<h1 style="font-family: Avenir-Book; font-size: 30px;" class="" id="motto">Discover traditional cuisines from all over the world</h1>
 
 
+<div><a href="recipes">Recipes</a> </div>
+
+<img bind:this={worldmapElement} id="worldmap" src="frontpage/worldmap.svg" style="display:none;">
+<div class="sideBySideCardContainer">
+	<div class="sectionCard sideBySide" id="mapContainer" bind:this={mapContainer}>
+		<canvas id="canvas" bind:this={canvasElement} width="100%" height="100%"></canvas>
+		<canvas id="canvas2" bind:this={canvasElement2} width="100%" height="100%"></canvas>
+		<h1 style="font-family: Avenir-Black; width: 100%; margin-top: 15px; font-size: 30px;" class="centeredBitch" id="maphelp">Select a location to find regional dishes <b style="font-size: 30px">&#x2934;</b></h1>
+	</div>
+	<div class="sectionCard sideBySide" id="foodContainer">
+		<div id="hotdishes" class="centeredBitch"><span>HOT DISHES</span></div>
+		<div class="sideBySideCardContainer"  id="actfoodContainer">
+			<!-- <div class="foodBox">01</div>
+			<div class="foodBox">02</div>
+			<div class="foodBox">03</div>
+			<div class="foodBox">04</div>
+			<div class="foodBox">05</div> -->
+			{#each randCards as {name, url, stars, keyword, descr}}	
+				<div class="foodBox">
+					<img src={url} alt={name} >
+					<h4>{name}</h4>
+					<span class="stars">{star.repeat(stars)}</span>
+				</div>
+			{/each}
+		  </div>
+	</div>
+</div>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
@@ -211,12 +238,6 @@
 			margin-left: 0 !important;
 			margin-right: 0 !important;
 		}
-
-		.foodBox {
-			width: 165px !important;
-			height: 144px !important;}
-
-	
 	}
 
 
@@ -240,33 +261,44 @@
 		padding-top: 0px;
 		text-align: center;
 	}
+
+	.stars {
+        font-size: 1rem;
+        margin: 0;
+        position: 'relative';
+        top: -15px;
+    }
+	
 	.foodBox>img {
 		max-height: 120px !important;
 		border-radius: 8px;
+		height: 100px;
 		margin: 0 auto;
+		object-fit: cover;
 	}
 	.foodBox>h4 {
 		position: absolute;
 		text-align: center;
-		left: 50%;
-		transform: translateX(-50%);
+		left: 0%;
     	bottom: 5px;
 		width: 100%;
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-		font-size: 22px;
+		font-size: 20px;
+		color: #000000;
+		transform: translateY(-8px)
 	}
 
 	.foodBox { position: relative; display: inline-block;
 		width: 200px;
 		height: 175px;
 		border-radius: 9px;
-		background-color: rgb(170, 170, 170);
+		background-color: rgb(255, 255, 255);
 		margin-top: 15px;
 		margin-left: 7px;
 		margin-right: 7px;
 		padding: 10px;text-align: center;
 		transition: ease 0.1s;
 		cursor: pointer;
+		box-shadow: 2px 5px 5px rgb(153, 153, 153);
 	}
 
 	.foodBox:hover {
