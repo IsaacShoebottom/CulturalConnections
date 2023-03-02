@@ -18,7 +18,6 @@
         Drawer,
         CloseButton,
     } from 'flowbite-svelte';
-    import { Cog } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
 
     let star = "⭐";
@@ -34,7 +33,6 @@
         pageArray.push(i+1);
     }
 
-    console.log(cards);
     let selectedCards
     if (cards.length <= 15) {
         selectedCards = cards.slice();
@@ -42,15 +40,11 @@
     else {
         selectedCards = cards.slice().splice(0, 15);
     }
-    console.log(cards);
 
     function changePage(i) {
-        console.log(i);
         currentPage = i;
         let firstIndex = i * 15;
         let lastIndex = firstIndex + 15;
-        console.log(firstIndex + " " + lastIndex);
-        console.log(cards);
         if (lastIndex >= cards.length) {
             selectedCards = cards.slice().splice(firstIndex, cards.length);
         }
@@ -105,14 +99,17 @@
     const tagList = [
         "vegan",
         "vegetarian",
-        "kito",
+        "keto",
         "healthy",
-        "unhealthy"
+        "unhealthy",
+        "meat",
+        "kosher"
     ];
 
     function setTags() {
         searchTags = tags;
 
+        // filter keywords
         if (searchTags == undefined || searchTags.length == 0) {
             cards = unfilteredCards.slice();
         }
@@ -123,6 +120,42 @@
                     cards.push(c);
                 }
             });
+        }
+
+        //filter rating
+        if (searchRating != 0) {
+            let tempCards = cards.slice();
+            let cardsCopy = [];
+            tempCards.forEach(c => {
+                if (c.stars == searchRating) {
+                    cardsCopy.push(c);
+                }
+            })
+            cards = cardsCopy.slice();
+        }
+
+        //filter price
+        if (searchPrice != 0) {
+            let tempCards = cards.slice();
+            let cardsCopy = [];
+            tempCards.forEach(c => {
+                if (c.price == searchPrice) {
+                    cardsCopy.push(c);
+                }
+            })
+            cards = cardsCopy.slice();
+        }
+
+        //filter difficulty
+        if (searchDifficulty != 0) {
+            let tempCards = cards.slice();
+            let cardsCopy = [];
+            tempCards.forEach(c => {
+                if (c.difficulty == searchDifficulty) {
+                    cardsCopy.push(c);
+                }
+            })
+            cards = cardsCopy.slice();
         }
 
         if (cards.length <= 15) {
@@ -151,6 +184,39 @@
         { text: 'Recipes', href: 'recipes' }
     ];
 
+    const rangeArray = ['Low', 'Medium', 'High'];
+
+    // Range Slider setters
+    let searchRating = 0;
+    function setSearchRating(e) {
+        searchRating = e.detail.value;
+    }
+
+    let searchPrice = 0;
+    function setSearchPrice(e) {
+        if (e.detail.value == 1) {
+            searchPrice = "low";
+        }
+        else if (e.detail.value == 2) {
+            searchPrice = "medium";
+        }
+        else if (e.detail.value == 3) {
+            searchPrice = "high";
+        }
+    }
+
+    let searchDifficulty = 0;
+    function setSearchDifficulty(e) {
+        if (e.detail.value == 1) {
+            searchDifficulty = "low";
+        }
+        else if (e.detail.value == 2) {
+            searchDifficulty = "medium";
+        }
+        else if (e.detail.value == 3) {
+            searchDifficulty = "high";
+        }
+    }
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -215,16 +281,16 @@
             />
         </div>
         <div>
-            <h5 style="margin-top: 30px;">Rating</h5>
-            <RangeSlider values={[3]} step={1}/>
+            <h5 class="topRangeLabels">Rating</h5>
+            <RangeSlider on:stop={(e) => {setSearchRating(e)}} pips id="reverse-pips" first='label' last='label' suffix=" Stars" pipstep={1} step={1} min={1} max={5}/>
         </div>
         <div>
-            <h5 style="margin-top: 30px;">Price</h5>
-            <RangeSlider values={[3]} step={1}/>
+            <h5 class="rangeLabels">Price</h5>
+            <RangeSlider on:stop={(e) => {setSearchPrice(e)}} pips id="reverse-pips" first='label' last='label' formatter={v => rangeArray[v-1]} pipstep={1} step={1} min={1} max={3}/>
         </div>
         <div>
-            <h5 style="margin-top: 30px;">Difficulty</h5>
-            <RangeSlider values={[3]} step={1}/>
+            <h5 class="rangeLabels">Difficulty</h5>
+            <RangeSlider on:stop={(e) => {setSearchDifficulty(e)}} pips id="reverse-pips" first='label' last='label' formatter={v => rangeArray[v-1]} pipstep={1} step={1} min={1} max={3}/>
         </div>
         <div class="apply">
             <Button color="red" on:click={() => setTags()}>apply filters</Button>
@@ -277,6 +343,33 @@
   </div>
 
 <style global>
+    #reverse-pips .rangePips {
+    bottom: auto;
+    top: -1em;
+    }
+    #reverse-pips .pip {
+    background: rgb(190, 56, 56);
+    top: auto;
+    bottom: 0.25em;
+    width: 2px;
+    transform: translateX(-1px);
+    transition-duration: 0.5s;
+    opacity: 0.7;
+    }
+    #reverse-pips .pip:nth-child(5n+1) {
+    height: 0.8em;
+    opacity: 0.9;
+    }
+    #reverse-pips .pip:nth-child(5n),
+    #reverse-pips .pip:nth-child(5n+2) {
+    height: 0.65em;
+    }
+    #reverse-pips .pip.selected {
+    background: rgb(255, 0, 157);
+    transition-duration: 0.05s;
+    opacity: 1;
+    }
+
     main {
         font-size: 28px; /* Increased text to enable scrolling */
         padding: 0px 10px;
@@ -291,6 +384,16 @@
     img {
         height: 100px;
         object-fit: cover;
+    }
+
+    .topRangeLabels {
+        margin-top: 40px;
+        font-size: 1.2rem;
+    }
+
+    .rangeLabels {
+        margin-top: 80px;
+        font-size: 1.2rem;
     }
 
     h4 {
