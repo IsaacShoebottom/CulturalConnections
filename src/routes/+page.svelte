@@ -6,6 +6,7 @@
 
 
 <div><a href="recipes">Recipes</a> </div>
+<Navbar></Navbar>
 
 <img bind:this={worldmapElement} id="worldmap" src="frontpage/worldmap.svg" style="display:none;">
 <div class="sideBySideCardContainer">
@@ -36,6 +37,7 @@
 <script lang="ts">
     import './fonts.css';
 	import { onMount } from "svelte";
+	import Navbar from './Navbar.svelte';
 	import { presetCards, shuffle } from './recipes/components/imgData.js';
 	const randCards = shuffle(presetCards).slice(0, 6);
     let canvasElement: HTMLCanvasElement
