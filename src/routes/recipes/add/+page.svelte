@@ -19,7 +19,7 @@
         CloseButton,
         SidebarDropdownWrapper
     } from 'flowbite-svelte';
-    import { Cog } from 'svelte-heros-v2';
+    import { Camera } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
     
     let divClass = 'w-full md:block md:w-auto pr-8';
@@ -149,10 +149,9 @@
             {#if avatar}
             <img class="avatar" src="{avatar}" alt="d" />
             {:else}
-            <img class="avatar" src="https://png.pngtree.com/png-vector/20220607/ourmid/pngtree-restaurant-food-delivery-icon-png-image_4852575.png" alt="" /> 
+            <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg" alt="" /> 
             {/if}
-            <img class="upload" src="https://static.thenounproject.com/png/625182-200.png" alt="" on:click={()=>{fileinput.click();}} />
-            <div class="chan" on:click={()=>{fileinput.click();}}>Choose Image</div>
+            <Button gradient color="purpleToPink" on:click={()=>{fileinput.click();}} class="!p-2"><Camera/>Upload Image</Button>
             <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} >
         </div>
         <div class = "flex items-center grid grid-rows-2 mr-10 ml-10">
@@ -239,6 +238,7 @@
     .avatar{
 		height:200px;
 		width:200px;
+        margin-bottom: 5px;
 	}
 
 </style>
