@@ -1,0 +1,16 @@
+{ 
+	"title": "Poutine", 
+	"price": 8.99,
+	"stars": 3,
+	"difficulty": "medium",
+	"country": "Canada",
+	"ingredients": {
+		"french fries": "4 cups",
+		"cheese curds": "2 cups",
+		"beef/chicken gravy": "2 cups",
+		"salt and pepper": "to taste"
+	},
+	"culture": "Poutine is a popular Canadian dish made of French fries, cheese curds, and gravy. It is believed to have originated in Quebec in the 1950s, and its popularity quickly spread across Canada. Today, poutine is considered a quintessential Canadian comfort food and is available in many different variations, from classic to gourmet. In Quebec, poutine has become an important part of the local culture, with dedicated poutine festivals and competitions held annually. Some argue that the best poutine can only be found in Quebec, where cheese curds are traditionally used. While poutine has faced criticism for its high calorie and fat content, it remains a beloved Canadian dish and a symbol of national pride.",
+	"recipe": "Preheat your oven to 400°F. Spread your French fries in a single layer on a baking sheet and bake them for about 20-25 minutes or until they're crispy and golden brown. While the fries are baking, heat your gravy in a saucepan over medium heat. Stir occasionally to prevent the gravy from burning. Once the fries are done, remove them from the oven and transfer them to a large serving dish. Sprinkle the cheese curds on top of the fries and pour the hot gravy over everything. Season with salt and pepper to taste. Serve immediately and enjoy your delicious poutine! Note: If you can't find cheese curds, you can substitute with shredded mozzarella or cheddar cheese. However, using cheese curds is the traditional and authentic way to make poutine.",
+	"photo": "poutine.jpg"
+}

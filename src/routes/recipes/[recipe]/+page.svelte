@@ -2,6 +2,8 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 
+	import "../../styles.css" // Import the font
+
 	let star = "⭐";
 	let stars = star.repeat(data.data.stars);
 
@@ -27,9 +29,12 @@
 	}
 
 	let ingredientsArray = Object.entries(ingredients);
+
+	let recipeArray = data.data.recipe.split(".");
+	recipeArray.pop(); // Remove the last empty element
 </script>
 
-<div class="m-10 space-y-3 overflow-auto">
+<div class="m-10 space-y-3 overflow-auto text-left">
 	<div class="flex place-items-center flex-col text-left">
 		<div>
 			<span class="text-3xl">{data.data.title}</span> ~
@@ -43,19 +48,27 @@
 		<!-- Here is where tags go? Not sure how we are doing tags atm -->
 	</div>
 
-	<div class="flex flex-wrap justify-center place-items-center">
-		<div class="mr-5">
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img class="rounded-xl max-w-md max-h-md w-full" src={data.data.photo} />
-		</div>
-		<div class="space-y-5">
-			<div class="max-w-screen-sm">{data.data.culture}</div>
-			<div>
+	<div class="flex flex-wrap justify-center ">
+		<div class="max-w-screen-sm w-full">
+			<div class="mr-5 mb-5">
+				<!-- svelte-ignore a11y-missing-attribute -->
+				<img class="rounded-xl max-w-screen-sm max-h-xl w-full" src={data.data.photo} />
+			</div>
+			<div class="max-w-screen-sm w-full mb-5">
 				{#each ingredientsArray as ingredient}
-					<ul>{ingredient[0]}: {ingredient[1]}</ul>
+					<div>• {ingredient[0]}: {ingredient[1]}</div>
 				{/each}
 			</div>
-			<div class="max-w-screen-sm">{data.data.recipe}</div>
+		</div>
+		
+		<div class="space-y-5">
+			<div class="max-w-screen-sm">{data.data.culture}</div>
+			
+			<div class="max-w-screen-sm">
+				{#each recipeArray as step, index}
+					<div class="mb-1">{index + 1}. {step}</div>
+				{/each}
+			</div>
 		</div>
 	</div>
 </div>

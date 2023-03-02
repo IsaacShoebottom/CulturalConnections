@@ -1,0 +1,17 @@
+{ 
+	"title": "Tattie Scones", 
+	"price": 4.99,
+	"stars": 4,
+	"difficulty": "hard",
+	"country": "Scotland",
+	"ingredients": {
+		"peeled and chopped potatoes": "2",
+		"flour": "1/2 cup",
+		"salt": "1/4 tsp",
+		"butter": "1 tbsp",
+		"milk": "1-2 tbsp"
+	},
+	"culture": "Tattie scones are a traditional Scottish food made from mashed potatoes, flour, and sometimes butter or milk. They are typically formed into flat cakes and cooked on a griddle or frying pan. Tattie scones have a long history in Scottish cuisine, and are often served as part of a traditional Scottish breakfast or as a side dish with other savory foods. They are also sometimes used as a base for other dishes, such as the popular Scottish dish \"tattie scone pizza.\" In addition to their role in Scottish cuisine, tattie scones are also a popular comfort food in other parts of the UK and Ireland. \n The ingredients in tattie scones - potatoes, flour, and butter or milk - all have cultural significance in Scotland. Potatoes have been a staple crop in Scotland for centuries and are an important part of Scottish cuisine. In fact, the potato is believed to have been introduced to Scotland in the late 16th century and has been a popular food ever since. Flour is also a key ingredient in many traditional Scottish dishes, from haggis to shortbread. And butter or milk is often used in Scottish cooking to add richness and flavor to dishes. The combination of mashed potatoes and flour in tattie scones is a classic example of Scottish cuisine's ability to create delicious dishes out of simple, humble ingredients. Tattie scones are also an example of how Scottish cuisine has been influenced by the country's geography and climate, as potatoes and flour are both crops that can be grown in Scotland's cooler, wetter climate. Overall, tattie scones are a delicious and enduring example of Scotland's rich culinary heritage.",
+	"recipe": "Boil the chopped potatoes in a pot of salted water until they are tender and easily mashed, about 15-20 minutes.\n Drain the potatoes and mash them until they are smooth and free of lumps.\n In a mixing bowl, combine the mashed potatoes, flour, salt, and butter. Mix well.\n Add 1-2 tablespoons of milk to the mixture, a little at a time, until the dough comes together in a ball.\n On a lightly floured surface, roll out the dough to about 1/4 inch thickness.\n Cut the dough into circles using a cookie cutter or the rim of a glass.\n Heat a griddle or non-stick frying pan over medium heat. Grease the pan lightly with butter or oil.\n Cook the tattie scones for about 2-3 minutes on each side, or until they are golden brown and crispy.\n Serve warm with your favorite breakfast foods or as a side dish.",
+	"photo": "tattie-scones.jpg"
+}
