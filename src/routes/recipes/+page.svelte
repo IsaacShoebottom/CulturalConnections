@@ -1,3 +1,4 @@
+<NavbarRad></NavbarRad>
 <script>
 	import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
@@ -6,6 +7,7 @@
 	import Gallery from './components/Gallery.svelte';
     import '../../app.css';
     import { onMount } from 'svelte';
+	import NavbarRad from '../NavbarRad.svelte';
     import {
         Navbar,
         NavBrand,
@@ -220,25 +222,10 @@
 </script>
 
 <svelte:window bind:innerWidth={width} />
+	<div style="width: 100%; margin-bottom: 100px;"></div>
 
-<Navbar let:hidden let:toggle>
-    <NavBrand href="/" class="lg:ml-64">
-      <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
-        Cultural Connections
-      </span>
-    </NavBrand>
-    <NavHamburger on:click={toggle} />
-    <NavUl {hidden} {divClass} {ulClass}>
-      <NavLi href="/">Home</NavLi>
-      <NavLi href="recipes">Recipes</NavLi>
-      <NavLi href="recipes/add">Create Recipe</NavLi>
-      <NavLi href="recipes/my-recipes">My Recipes</NavLi>
-    </NavUl>
-  </Navbar>
 
-  <Navbar let:hidden let:toggle>
-    <NavHamburger on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
-  </Navbar>
+	<NavHamburger style="margin-top: 20px; margin-left: 10px;" on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
 
   <Drawer
     leftOffset="top-18 h-screen left-0"
@@ -300,7 +287,7 @@
   </Sidebar>
   </Drawer>
 
-  <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
+  <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px; padding-top: 0;">
     <main class="lg:ml-72 w-full mx-auto">
         <Gallery>
             {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr, href}}	

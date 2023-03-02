@@ -6,8 +6,8 @@
 	import Gallery from '../components/Gallery.svelte';
     import '../../../app.css';
     import { onMount } from 'svelte';
+	import NavbarRad from "../../NavbarRad.svelte"
     import {
-        Navbar,
         NavBrand,
         NavLi,
         NavUl,
@@ -153,22 +153,13 @@
 
 </script>
 
+<NavbarRad></NavbarRad>
+<div style="margin-top: 50px;"></div>
+
+
 <svelte:window bind:innerWidth={width} />
 
-<Navbar let:hidden let:toggle>
-    <NavBrand href="/" class="lg:ml-64">
-        <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
-        Cultural Connections
-        </span>
-    </NavBrand>
-    <NavHamburger on:click={toggle} />
-    <NavUl {hidden} {divClass} {ulClass}>
-        <NavLi href="../">Home</NavLi>
-        <NavLi href="../recipes">Recipes</NavLi>
-        <NavLi href="../recipes/add">Create Recipe</NavLi>
-        <NavLi href="my-recipes">My Recipes</NavLi>
-    </NavUl>
-</Navbar>
+
 
   <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
     <main>

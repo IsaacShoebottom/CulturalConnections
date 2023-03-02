@@ -1,6 +1,7 @@
 <script>
     import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
+	import "../.../../../NavbarRad.svelte"
     import '../../../app.css';
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
@@ -21,6 +22,7 @@
     } from 'flowbite-svelte';
     import { Camera } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
+    import NavbarRad from '../.../../../NavbarRad.svelte';
     
     let divClass = 'w-full md:block md:w-auto pr-8';
     let ulClass = 'flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium';
@@ -128,21 +130,8 @@
 
 <svelte:window bind:innerWidth={width} />
 
-<Navbar let:hidden let:toggle>
-    <NavBrand href="/" class="lg:ml-64">
-        <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
-        Cultural Connections
-        </span>
-    </NavBrand>
-    <NavHamburger on:click={toggle} />
-    <NavUl {hidden} {divClass} {ulClass}>
-        <NavLi href="/">Home</NavLi>
-        <NavLi href="../recipes">Recipes</NavLi>
-        <NavLi href="recipes/add">Create Recipe</NavLi>
-        <NavLi href="/">My Recipes</NavLi>
-    </NavUl>
-</Navbar>
-
+<NavbarRad></NavbarRad>
+<div style="margin-top: 50px;"></div>
 <main class="mt-10" style="background-color:aliceblue; padding: 50px;">
     <div>
         <div id="app">

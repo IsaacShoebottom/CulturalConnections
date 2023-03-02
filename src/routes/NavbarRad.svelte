@@ -3,7 +3,7 @@
 	background-color: rgba(13, 17, 23, 1);
 	position: fixed;
 	top: 0; /* Pushes navbar to the top of the screen - always */
-	z-index: 1; /* layering priority - higher value -> on top */
+	z-index: 1000; /* layering priority - higher value -> on top */
 
 	width: 100vw;
 	
@@ -92,6 +92,7 @@
 #leftside {
 	display: flex;
 	align-items: center; /* Center vertically */
+	cursor: pointer;
 }
 #rightside {
 	text-align: right;
@@ -130,20 +131,20 @@
 
 
 <nav id="navigationBar">
-	<div id="leftside">
+	<a href="/" id="leftside">
 		<span id="title1">Cultural Connections<br>Through</span>
 		<span id="title2">COOKING</span>
-	</div>
+	</a>
 	
 	<span id="rightside">
-		<a href="recipes" class="textBtn">Recipes</a>
+		<a href="/recipes" class="textBtn">Recipes</a>
 		<div class="vertbar"></div>
-		<a href="recipes/add" class="textBtn">Create Recipe</a>
+		<a href="/recipes/add" class="textBtn">Create Recipe</a>
 		<div class="vertbar"></div>
-		<a href="recipes/my-recipes" class="textBtn">My Recipes</a>
+		<a href="/recipes/my-recipes" class="textBtn">My Recipes</a>
 
 		<span id="username">Matei</span>
-		<img src="frontpage/user.svg" height="50" width="50" style="filter: invert()"/>
+		<img src="/frontpage/user.svg" height="50" width="50" style="filter: invert()"/>
 		
 	</span>
 	
