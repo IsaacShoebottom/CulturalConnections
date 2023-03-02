@@ -1,0 +1,26 @@
+{ 
+	"title": "Curry", 
+	"price": 10.99,
+	"stars": 5,
+	"difficulty": "hard",
+	"country": "India",
+	"ingredients": {
+		"chicken or lamb": "1 lb (chopped)",
+		"vegetable oil": "2 tbsp",
+		"large onion": "1 (chopped)",
+		"garlic": "3 cloves (minced)",
+		"ginger": "1 tbsp (grated)",
+		"coriander": "1 tbsp (ground)",
+		"cumin": "1 tsp (ground)",
+		"turmeric": "1/2 tsp",
+		"cayenne pepper": "1/4 tsp",
+		"tomatoes puree": "1 cup",
+		"chicken/lamb broth": "1 cup",
+		"salt": "1 tsp",
+		"pepper": "1/4 tsp",
+		"cilantro": "1/4 cup (optional)"
+	},
+	"culture": "The origins of curry can be traced back to India, where it was originally a way to preserve meat and vegetables by cooking them in spices and then storing them in jars. Over time, the dish evolved to become a staple in Indian cuisine, with each region of the country developing its own unique variations of the dish. Curry was first introduced to the Western world in the 18th century, when British colonizers in India discovered the dish and brought it back to the UK. They then adapted the recipe to suit their own tastes, resulting in the creation of dishes such as chicken tikka masala, which is now one of the most popular dishes in the UK. Curry is an important part of many cultures around the world, including Indian, Pakistani, Bangladeshi, Sri Lankan, Thai, and Malaysian cultures. It is often served at festivals and celebrations, and is also a popular comfort food. In India, curry is often eaten with rice or bread, and is typically vegetarian or made with meat such as chicken, lamb, or goat. In South Asia, curry is also often served with a variety of accompaniments, such as chutneys, pickles, and yogurt. In the UK, curry has become a staple of the country's cuisine, with curry houses and takeaways found in every town and city. It is also a popular dish in other countries with large South Asian communities, such as Canada, the US, and Australia.",
+	"recipe": "In a large pot or Dutch oven, heat the vegetable oil over medium-high heat. Add the chopped onion and cook until it is soft and translucent, about 5-7 minutes. Add the minced garlic and grated ginger to the pot, and cook for an additional 1-2 minutes, until fragrant. Add the ground coriander, ground cumin, turmeric, and cayenne pepper to the pot, and stir until the spices are well combined with the onion mixture. Add the chicken or lamb to the pot, and stir until it is well coated with the spice mixture. Add the tomato puree and broth to the pot, and stir until everything is well combined. Bring the curry to a boil, then reduce the heat to low and simmer for 30-40 minutes, until the chicken or lamb is cooked through and tender. Season the curry with salt and black pepper to taste. Serve the curry hot, garnished with chopped fresh cilantro if desired.",
+	"photo": "curry.jpg"
+}

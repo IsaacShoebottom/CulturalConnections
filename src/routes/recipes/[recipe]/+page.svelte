@@ -2,6 +2,8 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 
+	import "../../styles.css" // Import the font
+
 	let star = "⭐";
 	let stars = star.repeat(data.data.stars);
 
@@ -44,9 +46,9 @@
 	</div>
 
 	<div class="flex flex-wrap justify-center place-items-center">
-		<div class="mr-5">
+		<div class="mr-5 mb-5">
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<img class="rounded-xl max-w-md max-h-md w-full" src={data.data.photo} />
+			<img class="rounded-xl max-w-xl max-h-xl w-full" src={data.data.photo} />
 		</div>
 		<div class="space-y-5">
 			<div class="max-w-screen-sm">{data.data.culture}</div>
