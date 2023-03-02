@@ -1,7 +1,8 @@
 <style>
 	.row {
 		width: 100%;
-		display: flex;
+		
+		display: inline-flex;
 		flex-wrap: wrap;	
 	}
 </style>

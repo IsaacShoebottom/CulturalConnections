@@ -2,18 +2,32 @@
     <li>Home</li>
 </ul>
 
-<h1 style="font-family: Avenir-Book" class="centeredBitch">Discover tradition cuisines from all over the world</h1>
+<h1 style="font-family: Avenir-Book; font-size: 30px;" class="centeredBitch" id="motto">Discover tradition cuisines from all over the world</h1>
 
 
 <div><a href="recipes">Recipes</a> </div>
-<img bind:this={worldmapElement} src="frontpage/worldmap.svg" style="display:none;">
+
+<img bind:this={worldmapElement} id="worldmap" src="frontpage/worldmap.svg" style="display:none;">
 <div class="sideBySideCardContainer">
-	<div class="sectionCard sideBySide" id="mapContainer" bind:this={mapContainer} style="max-width: 600px; height: auto;">
+	<div class="sectionCard sideBySide" id="mapContainer" bind:this={mapContainer}>
 		<canvas id="canvas" bind:this={canvasElement} width="100%" height="100%"></canvas>
-		<h1 style="font-family: Avenir-Black; width: 100%; margin-top: 15px;" class="centeredBitch">Select a location to find regional dishes <b style="font-size: 30px">&#x2934;</b></h1>
+		<h1 style="font-family: Avenir-Black; width: 100%; margin-top: 15px; font-size: 30px;" class="centeredBitch">Select a location to find regional dishes <b style="font-size: 30px">&#x2934;</b></h1>
 	</div>
-	<div class="sectionCard sideBySide" style="max-width: 300px;">
+	<div class="sectionCard sideBySide" id="foodContainer">
 		<div id="hotdishes" class="centeredBitch"><span>HOT DISHES</span></div>
+		<div class="sideBySideCardContainer"  id="actfoodContainer">
+			<!-- <div class="foodBox">01</div>
+			<div class="foodBox">02</div>
+			<div class="foodBox">03</div>
+			<div class="foodBox">04</div>
+			<div class="foodBox">05</div> -->
+			{#each cards as {name, url, keyword, descr}}	
+				<div class="foodBox">
+					<img src={url} alt={name} >
+					<h4>{name}</h4>
+				</div>
+			{/each}
+		  </div>
 	</div>
 </div>
 
@@ -21,6 +35,8 @@
 <script lang="ts">
     import './fonts.css';
 	import { onMount } from "svelte";
+	import { cards } from './recipes/components/imgData.js';
+	import Gallery from './recipes/components/Gallery.svelte';
     let canvasElement: HTMLCanvasElement
 	let worldmapElement: HTMLImageElement
 	let innerWidth = 0
@@ -44,16 +60,14 @@
 		new ResizeObserver(draw).observe(mapContainer);
 		
 		async function draw() {
-			console.log('drwain')
 			if (drewRecently) return;
-			console.log('yes\n----')
 			drewRecently = true;
 			// draw line
 			canvasElement.width = Number(mapContainer.clientWidth);
 			canvasElement.height = Number(mapContainer.clientWidth * worldMapAspectRatio);
 			
 			ctx.drawImage(worldmapElement, 0, 0, canvasElement.width, canvasElement.height);
-			let maxDots = 100;
+			let maxDots = 150;
 			for (let i = 0; i < maxDots; i++) {
 				const x = generateRandom(0,canvasElement.width);
 				const y = generateRandom(0,canvasElement.height);
@@ -97,10 +111,65 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-
 <style>
+	#motto {
+		width: 100%;
+	}
+	.row {
+		color: blue;
+	}
+
+	#actfoodContainer {
+		width: 100%;
+		margin: 0 auto;
+	}
+	#foodContainer {
+		max-width: 500px;
+		padding: 0;
+		padding-top: 0px;
+		text-align: center;
+	}
+	.foodBox>img {
+		max-height: 120px !important;
+		border-radius: 8px;
+		margin: 0 auto;
+	}
+	.foodBox>h4 {
+		position: absolute;
+		text-align: center;
+		left: 50%;
+		transform: translateX(-50%);
+    	bottom: 5px;
+		width: 100%;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-size: 22px;
+	}
+
+	.foodBox { position: relative; display: inline-block;
+		width: 200px;
+		height: 175px;
+		border-radius: 9px;
+		background-color: rgb(170, 170, 170);
+		margin-top: 15px;
+		margin-left: 7px;
+		margin-right: 7px;
+		padding: 10px;text-align: center;
+		transition: ease 0.1s;
+		cursor: pointer;
+	}
+
+	.foodBox:hover {
+
+	}
+
+	.foodBox:hover:not(:active) {
+		transform: scale(1.07);
+	}
+
 	#mapContainer {
-		max-height: 500px;
+		max-width: 1200px; 
+		width: 60%;
+		height: fit-content;
 		padding: 0;
 	}
 
@@ -113,7 +182,7 @@
 	}
 	#hotdishes {
 		border-radius: 8px;
-		font-size: 30px;
+		font-size: 40px;
 		background-color: #CD010C;
 		color: white;
 		text-align: center;
@@ -133,14 +202,10 @@
 		transform: translateX(-50%);
 	}
 
-
 	#maphelp {
 		width: 100%;
 	}
 
-	#worldmap {
-		filter: contrast(50%);
-	}
 
 	.sideBySideCardContainer {
 		display: flex;
@@ -150,13 +215,10 @@
 	}
 
 	.sectionCard {
-		width: 100%;
-		max-width: 2000px;
 		margin-left: auto; /* this means the margins are the same, so it gets pushed to the middle */
 		margin-right: auto;
 		margin-bottom: 20px;
 		padding: 32px 48px 32px; /* top, left&right, bottom */
-		border: 2px solid red;
 		border-radius: var(--defaultBorderRadius);
 		box-sizing: border-box;         /* Opera/IE 8+ */
 	}
