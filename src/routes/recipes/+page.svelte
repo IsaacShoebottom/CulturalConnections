@@ -1,4 +1,3 @@
-<NavbarRad></NavbarRad>
 <script>
 	import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
@@ -221,23 +220,27 @@
     }
 </script>
 
+<NavbarRad></NavbarRad>
+<div style="margin-top:110px;"></div>
+
 <svelte:window bind:innerWidth={width} />
 	<div style="width: 100%; margin-bottom: 100px;"></div>
 
 
-	<NavHamburger style="margin-top: 20px; margin-left: 10px;" on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
+	<NavHamburger style="margin-top: 0px; margin-left: 10px; float:left;" on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
 
-  <Drawer
-    leftOffset="top-18 h-screen left-0"
-    transitionType= "fly"
-    {backdrop}
-    {transitionParams}
-    bind:hidden={drawerHidden}
-    bind:activateClickOutside
-    width="w-100"
-    class="overflow-scroll pb-32"
-    id= "sidebar"
-  >
+	
+	<Drawer 
+	leftOffset="top-18 h-screen left-0"
+	transitionType= "fly"
+	{backdrop}
+	{transitionParams}
+	bind:hidden={drawerHidden}
+	bind:activateClickOutside
+	width="w-100"
+	class="overflow-scroll pb-32" id="sidebarrr">
+
+  
   <div class=" flex items-center">
     <CloseButton on:click={() => (drawerHidden = true)} class="mb-4 dark:text-white lg:hidden" />
   </div>
@@ -292,7 +295,7 @@
         <Gallery>
             {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr, href}}	
                 {#if searchTags === undefined || searchTags.length == 0}
-                    <a href={href}>
+                    <a class="foodBox" href={href}>
                         <div class="show column">
                             <div class="content">
                                 <img src={url} alt={name} style="width:100%">
@@ -304,7 +307,7 @@
                     </a>
                 {:else}
                     <div class:show={keyword.some(r=>searchTags.includes(r))} class="column">
-                        <a href={href}>
+                        <a class="foodBox" href={href}>
                             <div class="content">
                                 <img src={url} alt={name} style="width:100%">
                                 <h4>{name}</h4>
@@ -334,6 +337,7 @@
   </div>
 
 <style global>
+
     #reverse-pips .rangePips {
     bottom: auto;
     top: -1em;
@@ -416,6 +420,13 @@
         margin: 20px 8px;
     }
 
+	.foodBox {
+		transition: ease 0.1s;
+	}
+
+	.foodBox:hover:not(:active) {
+		transform: scale(1.07);
+	}
 
     /* Content */
     .content {

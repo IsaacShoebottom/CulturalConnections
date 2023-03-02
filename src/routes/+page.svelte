@@ -14,6 +14,10 @@
 	let drewRecently = false;
 	let dotcoords = [];
 	let star = "⭐";
+
+	const clickevnt = () => {
+						window.location.href = presetCards[Math.floor(Math.random()*presetCards.length)].href;
+					};
     onMount(async () => {
 		
 		while (!worldmapElement.complete || worldmapElement.naturalHeight === 0) {await sleep(100)};
@@ -27,17 +31,23 @@
 					window.requestAnimationFrame(() => {
 						drawHover(x, y, 2, 1, 5);
 					});
+
+					
 					hovering = true;
 				} else {
 					ctx2.clearRect(x - 5, y - 5, 10, 10);
+
+					
 				}
 			}
 
 			
 			if (hovering) {
 				canvasElement2.style.cursor = "pointer";
+				canvasElement2.addEventListener('click', clickevnt);
 			} else {
 				canvasElement2.style.cursor = "default";
+				canvasElement2.removeEventListener('click', clickevnt);
 			}
 		});
 
@@ -126,12 +136,11 @@
 
 </script>
 
-
+<NavbarRad></NavbarRad>
+<div style="margin-top:110px;"></div>
 
 <h1 style="font-family: Avenir-Book; font-size: 30px;" class="" id="motto">Discover traditional cuisines from all over the world</h1>
 
-
-<NavbarRad></NavbarRad>
 
 <img bind:this={worldmapElement} id="worldmap" src="frontpage/worldmap.svg" style="display:none;">
 <div class="sideBySideCardContainer">
@@ -165,7 +174,6 @@
 	}
 
 	:global(body) {
-		padding-top: 100px;
 		width: 100%;
 		overflow-x: hidden; /* Without this, the tooltip will cause horizontal scroll bar and jump downwards on mouseleave */
 		margin: 0;
@@ -173,8 +181,6 @@
 		background-size: 100vw;
 		text-align: center;
 	}
-
-	
 
 	@media screen and (max-width: 1175px) {
 		#mapContainer {

@@ -1,7 +1,7 @@
 <script>
     import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
-	import "../.../../../NavbarRad.svelte"
+	import NavbarRad from "../../NavbarRad.svelte"
     import '../../../app.css';
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
@@ -22,7 +22,6 @@
     } from 'flowbite-svelte';
     import { Camera } from 'svelte-heros-v2';
     import { sineIn } from 'svelte/easing';
-    import NavbarRad from '../.../../../NavbarRad.svelte';
     
     let divClass = 'w-full md:block md:w-auto pr-8';
     let ulClass = 'flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium';
@@ -130,8 +129,10 @@
 
 <svelte:window bind:innerWidth={width} />
 
+
 <NavbarRad></NavbarRad>
-<div style="margin-top: 50px;"></div>
+<div style="margin-top: 50px;"></div>	
+
 <main class="mt-10" style="background-color:aliceblue; padding: 50px;">
     <div>
         <div id="app">

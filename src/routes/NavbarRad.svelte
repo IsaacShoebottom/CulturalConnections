@@ -6,7 +6,7 @@
 	z-index: 1000; /* layering priority - higher value -> on top */
 
 	width: 100vw;
-	
+	box-shadow: 0px 0px 10px 10px rgba(0,0,0, 0.3);
 	display: flex;
 	left: 0; right: 0; /* This makes the navbar span across the whole page */
 	align-items: center; /* Center vertically */
@@ -84,7 +84,7 @@
 	color: white;
 	font-weight: bold;
 	text-align: right;
-	font-size: 25px;
+	font-size: 20px;
 	display: inline-block;
 	margin-left: 50px;
 	margin-right: 20px;
@@ -126,10 +126,70 @@
 	cursor: pointer;
 }
 
+@media screen and (max-width: 1400px) {
+	#leftside {
+		display: none;
+	
+
+	}
+
+	#rightside {
+		text-align: center;
+		justify-content: space-between;
+		margin: 0 auto;
+		width: 100%;
+		align-items: center; /* Center vertically */
+	
+	}
+
+	.textBtn, #username {
+		font-size: 15px;
+	}
+
+	#navigationBar {
+		max-height: 50px;
+	}
+
+	.vertbar {
+		height: 35px;
+		width: 1px;
+	}
+}
+#mateiwrapper{
+	display: flex;
+		align-items: center; /* Center vertically */
+}
+
+@media screen and (max-width: 700px) {
+	.textBtn {
+		margin: 0;
+	}
+
+	#navigationBar {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+
+	#username {
+		margin-left: 20px;
+	}
+
+
+}
+
+@media screen and (max-width: 440px) {
+	
+	#mateiwrapper {
+		display: none;
+	}
+}
+
 
 </style>
 
-
+<script>
+	import './fonts.css';
+</script>
 <nav id="navigationBar">
 	<a href="/" id="leftside">
 		<span id="title1">Cultural Connections<br>Through</span>
@@ -142,9 +202,11 @@
 		<a href="/recipes/add" class="textBtn">Create Recipe</a>
 		<div class="vertbar"></div>
 		<a href="/recipes/my-recipes" class="textBtn">My Recipes</a>
-
-		<span id="username">Matei</span>
-		<img src="/frontpage/user.svg" height="50" width="50" style="filter: invert()"/>
+		<div id="mateiwrapper">
+			<span id="username">Matei</span>
+			<img src="/frontpage/user.svg" height="50" width="50" style="filter: invert()"/>
+		</div>
+		
 		
 	</span>
 	
