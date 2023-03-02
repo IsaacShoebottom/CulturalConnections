@@ -21,7 +21,7 @@
 			<div class="foodBox">03</div>
 			<div class="foodBox">04</div>
 			<div class="foodBox">05</div> -->
-			{#each cards as {name, url, keyword, descr}}	
+			{#each presetCards as {name, url, keyword, descr}}	
 				<div class="foodBox">
 					<img src={url} alt={name} >
 					<h4>{name}</h4>
@@ -35,7 +35,7 @@
 <script lang="ts">
     import './fonts.css';
 	import { onMount } from "svelte";
-	import { cards } from './recipes/components/imgData.js';
+	import { presetCards } from './recipes/components/imgData.js';
 	import Gallery from './recipes/components/Gallery.svelte';
     let canvasElement: HTMLCanvasElement
 	let worldmapElement: HTMLImageElement
