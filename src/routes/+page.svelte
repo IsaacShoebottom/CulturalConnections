@@ -2,7 +2,7 @@
     <li>Home</li>
 </ul>
 
-<h1 style="font-family: Avenir-Book; font-size: 30px;" class="centeredBitch" id="motto">Discover tradition cuisines from all over the world</h1>
+<h1 style="font-family: Avenir-Book; font-size: 30px;" class="" id="motto">Discover traditional cuisines from all over the world</h1>
 
 
 <div><a href="recipes">Recipes</a> </div>
@@ -11,7 +11,8 @@
 <div class="sideBySideCardContainer">
 	<div class="sectionCard sideBySide" id="mapContainer" bind:this={mapContainer}>
 		<canvas id="canvas" bind:this={canvasElement} width="100%" height="100%"></canvas>
-		<h1 style="font-family: Avenir-Black; width: 100%; margin-top: 15px; font-size: 30px;" class="centeredBitch">Select a location to find regional dishes <b style="font-size: 30px">&#x2934;</b></h1>
+		<canvas id="canvas2" bind:this={canvasElement2} width="100%" height="100%"></canvas>
+		<h1 style="font-family: Avenir-Black; width: 100%; margin-top: 15px; font-size: 30px;" class="centeredBitch" id="maphelp">Select a location to find regional dishes <b style="font-size: 30px">&#x2934;</b></h1>
 	</div>
 	<div class="sectionCard sideBySide" id="foodContainer">
 		<div id="hotdishes" class="centeredBitch"><span>HOT DISHES</span></div>
@@ -21,7 +22,7 @@
 			<div class="foodBox">03</div>
 			<div class="foodBox">04</div>
 			<div class="foodBox">05</div> -->
-			{#each presetCards as {name, url, keyword, descr}}	
+			{#each randCards as {name, url, keyword, descr}}	
 				<div class="foodBox">
 					<img src={url} alt={name} >
 					<h4>{name}</h4>
@@ -35,53 +36,107 @@
 <script lang="ts">
     import './fonts.css';
 	import { onMount } from "svelte";
-	import { presetCards } from './recipes/components/imgData.js';
-	import Gallery from './recipes/components/Gallery.svelte';
+	import { presetCards, shuffle } from './recipes/components/imgData.js';
+	const randCards = shuffle(presetCards).slice(0, 6);
     let canvasElement: HTMLCanvasElement
+	let canvasElement2: HTMLCanvasElement
 	let worldmapElement: HTMLImageElement
 	let innerWidth = 0
     let innerHeight = 0
     let mapContainer: HTMLDivElement
-	let ctx;
+	let ctx, ctx2;
 	let drewRecently = false;
+	let dotcoords = [];
 	
     onMount(async () => {
 		
 		while (!worldmapElement.complete || worldmapElement.naturalHeight === 0) {await sleep(100)};
-		canvasElement.addEventListener('click', (e) => {
-			console.log(e);
+		canvasElement2.addEventListener('mousemove', (e) => {
+			const l = dotcoords.length;
+			ctx2.fillStyle = 'red';
+			let hovering = false;
+			for (let i = 0; i < l; i++) {
+				const x = dotcoords[i][0], y = dotcoords[i][1];
+				if (Math.abs(x - e.offsetX) < 30 && Math.abs(y - e.offsetY) < 30) {
+					window.requestAnimationFrame(() => {
+						drawHover(x, y, 2, 1, 5);
+					});
+					hovering = true;
+				} else {
+					ctx2.clearRect(x - 5, y - 5, 10, 10);
+				}
+			}
+
+			
+			if (hovering) {
+				canvasElement2.style.cursor = "pointer";
+			} else {
+				canvasElement2.style.cursor = "default";
+			}
 		});
+
+		function drawHover(x, y, radius, step, finalRadius) {
+
+			ctx2.beginPath();
+			ctx2.arc(x,y, radius, 0, 2*Math.PI); // fill in the pixel at (10,10)
+			ctx2.fill();
+
+			if (radius !== finalRadius) {
+				window.requestAnimationFrame(() => {
+					drawHover(x, y, radius + step, step, finalRadius);
+				});
+			}
+		}
+
+		// canvasElement2.addEventListener('mousemove', (e) => {
+		// 	const x = e.offsetX, y = e.offsetY;
+		// 	let grd = ctx.createRadialGradient(x, y, 0, x, y, 100);
+		// 	grd.addColorStop(0, 'rgba(255,0,0,.5)');
+		// 	grd.addColorStop(1, "rgba(0,0,0,0)");
+		// 	ctx.fillStyle = grd;
+		// 	ctx.fillRect(x-100, y-100, 300, 300);
+		// });
+
+
 		const worldMapAspectRatio = worldmapElement.naturalHeight / worldmapElement.naturalWidth;
 		
 		
 		// get canvas context
 		ctx = canvasElement.getContext("2d")
+		ctx2 = canvasElement2.getContext("2d")
+
+		
+		
 	
 		new ResizeObserver(draw).observe(mapContainer);
 		
 		async function draw() {
 			if (drewRecently) return;
 			drewRecently = true;
+			dotcoords = [];
 			// draw line
 			canvasElement.width = Number(mapContainer.clientWidth);
 			canvasElement.height = Number(mapContainer.clientWidth * worldMapAspectRatio);
+			canvasElement2.width = Number(mapContainer.clientWidth);
+			canvasElement2.height = Number(mapContainer.clientWidth * worldMapAspectRatio);
 			
 			ctx.drawImage(worldmapElement, 0, 0, canvasElement.width, canvasElement.height);
-			let maxDots = 150;
+			let maxDots = 200;
 			for (let i = 0; i < maxDots; i++) {
 				const x = generateRandom(0,canvasElement.width);
 				const y = generateRandom(0,canvasElement.height);
-				var data = ctx.getImageData(x, y, 1, 1).data;
+				let data = ctx.getImageData(x, y, 1, 1).data;
 				//var rgb = [ data[0], data[1], data[2] ];
 				if ((data[0] === 0 && data[1] === 0 && data[2] === 0)) {
 					maxDots++;
 					continue;
 				}
-				//console.log(rgb);
+
 				ctx.fillStyle = 'red';
 				ctx.beginPath();
 				ctx.arc(x,y, 1.5, 0, 2*Math.PI); // fill in the pixel at (10,10)
 				ctx.fill();
+				dotcoords.push([x, y]);
 			}
 
 			await sleep(75);
@@ -109,11 +164,65 @@
 
 </script>
 
+
+
+
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <style>
+	:global(html) {
+		width: 100%;
+		overflow-x: hidden; 
+	}
+
+	:global(body) {
+		width: 100%;
+		overflow-x: hidden; /* Without this, the tooltip will cause horizontal scroll bar and jump downwards on mouseleave */
+		margin: 0;
+		width: 100vw;
+		background-size: 100vw;
+		text-align: center;
+	}
+
+	
+
+	@media screen and (max-width: 1175px) {
+		#mapContainer {
+			width: 100% !important;
+			padding: 0;
+			margin: 0;
+		}
+
+		main {
+			width: 100%;
+		}
+
+		#maphelp {
+			font-size: 20px !important;
+		}
+
+		#hotdishes {
+			margin-top: 100px;
+		}
+
+		.sectionCard.sideBySide {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+
+		.foodBox {
+			width: 165px !important;
+			height: 144px !important;}
+
+	
+	}
+
+
 	#motto {
 		width: 100%;
+		
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 	.row {
 		color: blue;
@@ -167,19 +276,27 @@
 	}
 
 	#mapContainer {
+		position: relative;
 		max-width: 1200px; 
 		width: 60%;
 		height: fit-content;
 		padding: 0;
 	}
 
-	#canvas {
+	#canvas, #canvas2 {
 		/* background: url('frontpage/worldmap.svg');
 		background-size: 100%;
 		background-repeat: no-repeat; */
 		margin: 20px;
 	
 	}
+
+	#canvas2 {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
 	#hotdishes {
 		border-radius: 8px;
 		font-size: 40px;
