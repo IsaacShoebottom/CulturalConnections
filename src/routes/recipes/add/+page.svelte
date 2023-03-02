@@ -1,6 +1,7 @@
 <script>
     import RangeSlider from 'svelte-range-slider-pips'
     import Tags from 'svelte-tags-input'
+	import NavbarRad from "../../NavbarRad.svelte"
     import '../../../app.css';
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
@@ -128,20 +129,9 @@
 
 <svelte:window bind:innerWidth={width} />
 
-<Navbar let:hidden let:toggle>
-    <NavBrand href="/" class="lg:ml-64">
-        <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
-        Cultural Connections
-        </span>
-    </NavBrand>
-    <NavHamburger on:click={toggle} />
-    <NavUl {hidden} {divClass} {ulClass}>
-        <NavLi href="/">Home</NavLi>
-        <NavLi href="../recipes">Recipes</NavLi>
-        <NavLi href="recipes/add">Create Recipe</NavLi>
-        <NavLi href="/">My Recipes</NavLi>
-    </NavUl>
-</Navbar>
+
+<NavbarRad></NavbarRad>
+<div style="margin-top: 50px;"></div>	
 
 <main class="mt-10" style="background-color:aliceblue; padding: 50px;">
     <div>

@@ -1,7 +1,6 @@
 <script lang="js">
-	/** @type {import('./$types').PageData} */
 	export let data;
-
+	import NavbarRad from "../../NavbarRad.svelte"
 	import "../../styles.css" // Import the font
 
 	let star = "⭐";
@@ -33,6 +32,9 @@
 	let recipeArray = data.data.recipe.split(".");
 	recipeArray.pop(); // Remove the last empty element
 </script>
+
+<NavbarRad></NavbarRad>
+<div style="margin-top: 110px;"></div>
 
 <div class="m-10 space-y-3 overflow-auto text-left">
 	<div class="flex place-items-center flex-col text-left">
@@ -72,3 +74,4 @@
 		</div>
 	</div>
 </div>
+

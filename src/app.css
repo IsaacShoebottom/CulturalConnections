@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media screen and (max-width: 1023px) {
+	#sidebarrr {
+		top: 0 !important;
+		z-index: 10000 !important;
+	}
+}

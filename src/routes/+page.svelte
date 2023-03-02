@@ -1,42 +1,7 @@
-<ul class="breadcrumb">
-    <li>Home</li>
-</ul>
-
-<h1 style="font-family: Avenir-Book; font-size: 30px;" class="" id="motto">Discover traditional cuisines from all over the world</h1>
-
-
-<div><a href="recipes">Recipes</a> </div>
-<Navbar></Navbar>
-
-<img bind:this={worldmapElement} id="worldmap" src="frontpage/worldmap.svg" style="display:none;">
-<div class="sideBySideCardContainer">
-	<div class="sectionCard sideBySide" id="mapContainer" bind:this={mapContainer}>
-		<canvas id="canvas" bind:this={canvasElement} width="100%" height="100%"></canvas>
-		<canvas id="canvas2" bind:this={canvasElement2} width="100%" height="100%"></canvas>
-		<h1 style="font-family: Avenir-Black; width: 100%; margin-top: 15px; font-size: 30px;" class="centeredBitch" id="maphelp">Select a location to find regional dishes <b style="font-size: 30px">&#x2934;</b></h1>
-	</div>
-	<div class="sectionCard sideBySide" id="foodContainer">
-		<div id="hotdishes" class="centeredBitch"><span>HOT DISHES</span></div>
-		<div class="sideBySideCardContainer"  id="actfoodContainer">
-			<!-- <div class="foodBox">01</div>
-			<div class="foodBox">02</div>
-			<div class="foodBox">03</div>
-			<div class="foodBox">04</div>
-			<div class="foodBox">05</div> -->
-			{#each randCards as {name, url, keyword, descr}}	
-				<div class="foodBox">
-					<img src={url} alt={name} >
-					<h4>{name}</h4>
-				</div>
-			{/each}
-		  </div>
-	</div>
-</div>
-
 <script lang="ts">
     import './fonts.css';
 	import { onMount } from "svelte";
-	import Navbar from './Navbar.svelte';
+	import NavbarRad from './NavbarRad.svelte';
 	import { presetCards, shuffle } from './recipes/components/imgData.js';
 	const randCards = shuffle(presetCards).slice(0, 6);
     let canvasElement: HTMLCanvasElement
@@ -49,6 +14,10 @@
 	let drewRecently = false;
 	let dotcoords = [];
 	let star = "⭐";
+
+	const clickevnt = () => {
+						window.location.href = presetCards[Math.floor(Math.random()*presetCards.length)].href;
+					};
     onMount(async () => {
 		
 		while (!worldmapElement.complete || worldmapElement.naturalHeight === 0) {await sleep(100)};
@@ -62,17 +31,23 @@
 					window.requestAnimationFrame(() => {
 						drawHover(x, y, 2, 1, 5);
 					});
+
+					
 					hovering = true;
 				} else {
 					ctx2.clearRect(x - 5, y - 5, 10, 10);
+
+					
 				}
 			}
 
 			
 			if (hovering) {
 				canvasElement2.style.cursor = "pointer";
+				canvasElement2.addEventListener('click', clickevnt);
 			} else {
 				canvasElement2.style.cursor = "default";
+				canvasElement2.removeEventListener('click', clickevnt);
 			}
 		});
 
@@ -161,14 +136,11 @@
 
 </script>
 
-<ul class="breadcrumb">
-    <li>Home</li>
-</ul>
+<NavbarRad></NavbarRad>
+<div style="margin-top:110px;"></div>
 
 <h1 style="font-family: Avenir-Book; font-size: 30px;" class="" id="motto">Discover traditional cuisines from all over the world</h1>
 
-
-<div><a href="recipes">Recipes</a> </div>
 
 <img bind:this={worldmapElement} id="worldmap" src="frontpage/worldmap.svg" style="display:none;">
 <div class="sideBySideCardContainer">
@@ -180,17 +152,14 @@
 	<div class="sectionCard sideBySide" id="foodContainer">
 		<div id="hotdishes" class="centeredBitch"><span>HOT DISHES</span></div>
 		<div class="sideBySideCardContainer"  id="actfoodContainer">
-			<!-- <div class="foodBox">01</div>
-			<div class="foodBox">02</div>
-			<div class="foodBox">03</div>
-			<div class="foodBox">04</div>
-			<div class="foodBox">05</div> -->
-			{#each randCards as {name, url, stars, keyword, descr}}	
-				<div class="foodBox">
-					<img src={url} alt={name} >
-					<h4>{name}</h4>
-					<span class="stars">{star.repeat(stars)}</span>
-				</div>
+			{#each randCards as {name, url, stars, keyword, descr, href}}
+				<a href={href}>
+					<div class="foodBox">
+						<img src={url} alt={name} >
+						<h4>{name}</h4>
+						<span class="stars">{star.repeat(stars)}</span>
+					</div>
+				</a>
 			{/each}
 		  </div>
 	</div>
@@ -212,8 +181,6 @@
 		background-size: 100vw;
 		text-align: center;
 	}
-
-	
 
 	@media screen and (max-width: 1175px) {
 		#mapContainer {
@@ -243,7 +210,7 @@
 
 	#motto {
 		width: 100%;
-		
+		margin-bottom:50px;
 		padding-left: 15px;
 		padding-right: 15px;
 	}

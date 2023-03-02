@@ -6,6 +6,7 @@
 	import Gallery from './components/Gallery.svelte';
     import '../../app.css';
     import { onMount } from 'svelte';
+	import NavbarRad from '../NavbarRad.svelte';
     import {
         Navbar,
         NavBrand,
@@ -232,38 +233,27 @@
     }
 </script>
 
+<NavbarRad></NavbarRad>
+<div style="margin-top:110px;"></div>
+
 <svelte:window bind:innerWidth={width} />
+	<div style="width: 100%; margin-bottom: 100px;"></div>
 
-<Navbar let:hidden let:toggle>
-    <NavBrand href="/" class="lg:ml-64">
-      <span class= "self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4">
-        Cultural Connections
-      </span>
-    </NavBrand>
-    <NavHamburger on:click={toggle} />
-    <NavUl {hidden} {divClass} {ulClass}>
-      <NavLi href="/">Home</NavLi>
-      <NavLi href="recipes">Recipes</NavLi>
-      <NavLi href="recipes/add">Create Recipe</NavLi>
-      <NavLi href="recipes/my-recipes">My Recipes</NavLi>
-    </NavUl>
-  </Navbar>
 
-  <Navbar let:hidden let:toggle>
-    <NavHamburger on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
-  </Navbar>
+	<NavHamburger style="margin-top: 0px; margin-left: 10px; float:left;" on:click={toggleDrawer} btnClass="ml-3 lg:hidden"/>
 
-  <Drawer
-    leftOffset="top-18 h-screen left-0"
-    transitionType= "fly"
-    {backdrop}
-    {transitionParams}
-    bind:hidden={drawerHidden}
-    bind:activateClickOutside
-    width="w-100"
-    class="overflow-scroll pb-32"
-    id= "sidebar"
-  >
+	
+	<Drawer 
+	leftOffset="top-18 h-screen left-0"
+	transitionType= "fly"
+	{backdrop}
+	{transitionParams}
+	bind:hidden={drawerHidden}
+	bind:activateClickOutside
+	width="w-100"
+	class="overflow-scroll pb-32" id="sidebarrr">
+
+  
   <div class=" flex items-center">
     <CloseButton on:click={() => (drawerHidden = true)} class="mb-4 dark:text-white lg:hidden" />
   </div>
@@ -313,12 +303,12 @@
   </Sidebar>
   </Drawer>
 
-  <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px;">
+  <div class="flex px-4 mx-auto w-full" style="background-color:aliceblue; padding: 40px; padding-top: 0;">
     <main class="lg:ml-72 w-full mx-auto">
         <Gallery>
             {#each selectedCards as {name, url, keyword, country, difficulty, stars, descr, href}}	
                 {#if searchTags === undefined || searchTags.length == 0}
-                    <a href={href}>
+                    <a class="foodBox" href={href}>
                         <div class="show column">
                             <div class="content">
                                 <img src={url} alt={name} style="width:100%">
@@ -330,7 +320,7 @@
                     </a>
                 {:else}
                     <div class:show={keyword.some(r=>searchTags.includes(r))} class="column">
-                        <a href={href}>
+                        <a class="foodBox" href={href}>
                             <div class="content">
                                 <img src={url} alt={name} style="width:100%">
                                 <h4>{name}</h4>
@@ -360,6 +350,7 @@
   </div>
 
 <style global>
+
     #reverse-pips .rangePips {
     bottom: auto;
     top: -1em;
@@ -442,6 +433,13 @@
         margin: 20px 8px;
     }
 
+	.foodBox {
+		transition: ease 0.1s;
+	}
+
+	.foodBox:hover:not(:active) {
+		transform: scale(1.07);
+	}
 
     /* Content */
     .content {
