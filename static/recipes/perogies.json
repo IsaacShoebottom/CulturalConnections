@@ -1,0 +1,23 @@
+{ 
+	"title": "Perogies", 
+	"price": 10.00,
+	"stars": 2,
+	"difficulty": "hard",
+	"country": "Poland",
+	"ingredients": {
+        "flour": "2 cups",
+        "salt": "1/2 teaspoon",
+        "eggs": "2 large",
+        "sour cream": "1/2 cup",
+        "butter": "4 tablespoons",
+        "onion": "1 medium, chopped",
+        "potatoes": "4 large, boiled and mashed",
+        "cheddar cheese": "1 cup, shredded",
+        "black pepper": "1/4 teaspoon",
+        "vegetable oil": "2 tablespoons",
+        "water": "as needed"
+    },
+	"culture": "Perogies, also spelled pierogi, are a traditional dish in Central and Eastern European cuisine, particularly in Poland, Ukraine, and Russia. They are boiled or fried dumplings made with unleavened dough and filled with a variety of savory or sweet ingredients, such as potatoes, cheese, sauerkraut, mushrooms, or fruit. Perogies have a long history, dating back to the 13th century. They were originally a peasant food and were made in large quantities to feed families during the long winter months. Over time, perogies became a staple of festive occasions, such as weddings and holidays, and are now a popular dish in many countries around the world. They are often served with toppings such as sour cream, butter, fried onions, or bacon bits.",
+	"recipe": "To make perogies, start by preparing the dough. Combine flour, eggs, water, and salt in a bowl, and knead until a smooth dough forms. Let the dough rest for 30 minutes. In the meantime, make the filling by combining mashed potatoes, grated cheese, cooked bacon or sautéed onions, salt, and pepper in a separate bowl. Roll out the dough on a floured surface, and cut out circles using a biscuit cutter or the rim of a glass. Place a small spoonful of filling in the center of each circle, and fold the dough over to make a half-moon shape. Press the edges together to seal the perogies. Boil the perogies in salted water until they float to the surface, then remove with a slotted spoon and serve with sour cream or sautéed onions. You can also pan-fry or bake the perogies after boiling for a crispy texture.",
+	"photo": "Pierogi_z_cebulką.jpg"
+}

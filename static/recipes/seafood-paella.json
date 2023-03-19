@@ -1,0 +1,27 @@
+{ 
+	"title": "Seafood Paella", 
+	"price": 30.00,
+	"stars": 4,
+	"difficulty": "hard",
+	"country": "Spain",
+	"ingredients": {
+        "Rice": "1.5 cups",
+        "Chicken or seafood stock": "3 cups",
+        "Saffron threads": "1/4 tsp",
+        "Olive oil": "1/4 cup",
+        "Garlic, minced": "4 cloves",
+        "Onion, chopped": "1 medium",
+        "Red bell pepper, sliced": "1",
+        "Tomatoes, diced": "2 medium",
+        "Smoked paprika": "1 tsp",
+        "Turmeric": "1 tsp",
+        "Bay leaves": "2",
+        "Salt and pepper": "to taste",
+        "Seafood mix (shrimp, mussels, calamari)": "1 lb",
+        "Frozen peas": "1/2 cup",
+        "Lemon wedges": "for serving"
+    },
+	"culture": "Seafood paella is a traditional dish from the coastal region of Valencia, Spain. Its origin dates back to the 19th century when farmers and peasants in the area would cook rice with whatever ingredients they had on hand, such as rabbit and snails. As the dish became more popular, seafood was added to the recipe, and it evolved into the seafood paella we know today. It is now considered one of Spain's national dishes and is often served at special occasions and celebrations. Paella is typically enjoyed with friends and family, and the preparation and sharing of the dish are an important part of Spanish culture.",
+	"recipe": "To make seafood paella, start by heating olive oil in a large paella pan and sautéing onions and garlic until they are soft. Then, add diced tomatoes and cook for a few minutes before adding the rice and stirring it to coat it in the tomato mixture. Next, add saffron, smoked paprika, and salt to the rice and stir to combine. Add in the chicken broth and bring to a boil, then reduce the heat and let simmer for about 10 minutes. Arrange the seafood on top of the rice, cover the pan with foil, and let cook for another 10-15 minutes until the seafood is cooked through and the rice is tender. Once cooked, remove from heat and let the paella rest for a few minutes before serving. Garnish with fresh parsley and lemon wedges, if desired.",
+	"photo": "Seafood_Paella_at_home.jpg"
+}
