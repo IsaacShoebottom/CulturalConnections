@@ -1,0 +1,20 @@
+{ 
+	"title": "Pork Abodo", 
+	"price": 10.00,
+	"stars": 4,
+	"difficulty": "medium",
+	"country": "Philippines",
+	"ingredients": {
+        "pork": "1 lb",
+        "garlic": "4 cloves",
+        "soy sauce": "1/2 cup",
+        "white vinegar": "1/2 cup",
+        "bay leaves": "2",
+        "whole black pepper": "1 teaspoon",
+        "brown sugar": "1 tablespoon",
+        "water": "1 cup"
+    },
+	"culture": "Pork adobo is a popular Filipino dish that is often considered the country's national dish. It has a long history dating back to the pre-colonial era, where indigenous Filipinos would cook meat in vinegar and salt as a method of preservation. When the Spanish colonized the Philippines in the 16th century, they introduced garlic and soy sauce to the dish, which created the flavor profile that is commonly associated with adobo today. Over time, pork adobo has become a staple in Filipino cuisine and is often served at family gatherings and celebrations.",
+	"recipe": "Start by heating a tablespoon of oil in a pot over medium-high heat. Add 1 pound of cubed pork shoulder and cook until browned on all sides, then add 1/2 cup of soy sauce, 1/2 cup of vinegar, 1 cup of water, 1 tablespoon of minced garlic, 1 teaspoon of black pepper, and 2-3 bay leaves. Stir to combine and bring the mixture to a boil, then reduce the heat to low, cover the pot, and let it simmer for about 45 minutes, stirring occasionally. After 45 minutes, remove the lid and let the mixture simmer for another 15 minutes to allow the sauce to thicken. Taste and adjust seasoning as needed, then serve over rice.",
+	"photo": "Pork_abodo.jpg"
+}

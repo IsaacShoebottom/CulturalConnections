@@ -1,0 +1,25 @@
+{ 
+	"title": "Swedish Meatballs", 
+	"price": 12.00,
+	"stars": 1,
+	"difficulty": "easy",
+	"country": "Sweden",
+	"ingredients": {
+        "ground_beef": "1 lb",
+        "bread_crumbs": "1/2 cup",
+        "milk": "1/4 cup",
+        "onion": "1 small, finely chopped",
+        "egg": "1",
+        "salt": "1/2 tsp",
+        "black_pepper": "1/4 tsp",
+        "allspice": "1/4 tsp",
+        "butter": "2 tbsp",
+        "flour": "2 tbsp",
+        "beef_broth": "1 cup",
+        "sour_cream": "1/4 cup",
+        "fresh_parsley": "1/4 cup, chopped"
+    },
+	"culture": "Swedish meatballs are a traditional dish in Sweden that has become popular all over the world. The dish typically consists of small meatballs made from a mixture of ground beef, ground pork, and spices, which are then served with a rich, creamy sauce. In Sweden, meatballs have been a staple food for centuries, and Swedish meatballs have become an iconic part of the country's cuisine. They are often served with lingonberry jam and boiled potatoes, and are a popular dish to serve on holidays such as Christmas and Midsummer.",
+	"recipe": "To make Swedish meatballs, start by mixing ground beef and pork in a large bowl. Add in breadcrumbs, minced onion, an egg, milk, salt, and pepper, and mix until well combined. Form the mixture into small meatballs, about 1 inch in diameter. Heat a large skillet over medium heat, add some oil, and brown the meatballs on all sides until fully cooked. Remove the meatballs from the skillet and set aside. In the same skillet, melt butter and whisk in flour until it forms a paste. Gradually add beef broth and heavy cream, whisking constantly, until the sauce thickens. Add the meatballs back into the skillet and let them simmer in the sauce for a few minutes. Serve the Swedish meatballs with lingonberry jam and mashed potatoes, if desired.",
+	"photo": "Swedish_meatballs.jpg"
+}

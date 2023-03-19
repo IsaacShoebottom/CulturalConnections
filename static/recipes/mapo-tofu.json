@@ -1,0 +1,25 @@
+{ 
+	"title": "Mapo Tofu", 
+	"price": 15.00,
+	"stars": 5,
+	"difficulty": "medium",
+	"country": "China",
+	"ingredients": {
+        "doubanjiang": "2 tbsp",
+        "ground pork": "1/2 lb",
+        "tofu": "1 block (14 oz)",
+        "green onions": "2 stalks",
+        "garlic": "2 cloves",
+        "ginger": "1 inch piece",
+        "chicken stock": "1/2 cup",
+        "soy sauce": "1 tbsp",
+        "shaoxing wine": "1 tbsp",
+        "cornstarch": "1 tsp",
+        "water": "2 tbsp",
+        "vegetable oil": "2 tbsp",
+        "Sichuan peppercorns": "1 tsp"
+    },
+	"culture": "Mapo tofu is a popular Sichuan dish that originates from China. The dish is named after an elderly woman with a pockmarked face (ma means 'pockmarked' and po means 'old woman'), who is said to have created the dish in Chengdu during the Qing Dynasty. The dish has since become a staple in Sichuan cuisine and has spread throughout China and other parts of the world. Mapo tofu is known for its spicy and numbing flavor, which comes from the use of Sichuan peppercorns and doubanjiang (fermented broad bean paste).",
+	"recipe": "Cut 1 block of firm tofu into small cubes and set aside. Then, in a separate bowl, mix 2 tablespoons of cornstarch and 2 tablespoons of water to create a slurry. In a pan, heat up 2 tablespoons of oil over medium-high heat, and add 1 tablespoon of Sichuan peppercorns and 2 tablespoons of doubanjiang (spicy fermented bean paste). Cook for a minute or until fragrant. Add 1 tablespoon of minced garlic and 1 tablespoon of minced ginger and cook for another 30 seconds. Next, add 8 ounces of ground pork and cook until browned. Pour in 1 cup of chicken stock and 1 tablespoon of soy sauce and bring to a simmer. Then, add the cubed tofu and the cornstarch slurry, and gently stir until the sauce thickens and the tofu is heated through. Serve with steamed rice and enjoy!",
+	"photo": "Authentic_Mapo_Tofu.jpg"
+}

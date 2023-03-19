@@ -1,0 +1,24 @@
+{ 
+	"title": "Tteokbokki", 
+	"price": 15.00,
+	"stars": 3,
+	"difficulty": "medium",
+	"country": "South Korea",
+	"ingredients": {
+        "rice cakes": "200g",
+        "water": "600ml",
+        "dried anchovies": "10",
+        "dried kelp": "6x6cm",
+        "garlic": "2 cloves, minced",
+        "soy sauce": "1 tablespoon",
+        "sugar": "1 tablespoon",
+        "hot pepper flakes": "1 tablespoon",
+        "vegetable oil": "1 tablespoon",
+        "green onions": "2, sliced diagonally",
+        "eggs": "2",
+        "sesame oil": "1 teaspoon"
+    },
+	"culture": "Tteokbokki is a popular Korean street food dish that consists of chewy rice cakes, stir-fried in a spicy, sweet, and savory sauce made of gochujang (Korean chili paste), soy sauce, and other ingredients such as garlic and sugar. It is believed that tteokbokki originated during the Joseon Dynasty in the 19th century, where it was first served as a royal court dish. Over time, it became a popular street food in Korea and is now enjoyed by people of all ages and backgrounds. Tteokbokki is often sold in food stalls and carts on the streets of Korea and can be found in many Korean restaurants around the world.",
+	"recipe": "First, soak the rice cakes in cold water for about 30 minutes to soften them. Then, in a large pan or wok, sauté the garlic and onion until fragrant. Add the water, hot pepper paste, soy sauce, and sugar, and stir until the sauce is well combined. Add the rice cakes and fish cakes to the pan and simmer for about 10-15 minutes until the sauce has thickened and the rice cakes are tender. Finally, garnish with chopped green onions and enjoy your delicious Tteokbokki!",
+	"photo": "Tteokbokki.jpg"
+}
