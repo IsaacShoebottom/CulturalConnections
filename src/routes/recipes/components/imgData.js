@@ -1,7 +1,7 @@
 export const presetCards = [
         {
                 name: "Beef Stroganoff",
-                url: "recipes/beef-stroganoff.jpg",
+                url: "/recipes/beef-stroganoff.jpg",
                 keyword: ["meat"],
                 country: "russia",
                 difficulty: "medium",
@@ -12,7 +12,7 @@ export const presetCards = [
         },
         {
                 name: "Belgian Waffles",
-                url: "recipes/belgian-waffles.jpg",
+                url: "/recipes/belgian-waffles.jpg",
                 keyword: ["vegetarian", "unhealthy"],
                 country: "belgium",
                 difficulty: "medium",
@@ -45,7 +45,7 @@ export const presetCards = [
         },
         {
                 name: "Curry",
-                url: "recipes/curry.jpg",
+                url: "/recipes/curry.jpg",
                 keyword: ["meat", "kosher"],
                 country: "india",
                 difficulty: "high",
@@ -67,7 +67,7 @@ export const presetCards = [
         },
         {
                 name: "Instant Noodles",
-                url: "recipes/instant-noodles.jpg",
+                url: "/recipes/instant-noodles.jpg",
                 keyword: ["unhealthy", "vegetarian"],
                 country: "japan",
                 difficulty: "low",
@@ -78,7 +78,7 @@ export const presetCards = [
         },
         {
                 name: "Mapo Tofu",
-                url: "recipes/mapo-tofu.jpg",
+                url: "/recipes/mapo-tofu.jpg",
                 keyword: ["meat"],
                 country: "china",
                 difficulty: "medium",
@@ -89,7 +89,7 @@ export const presetCards = [
         },
         {
                 name: "Moussaka",
-                url: "recipes/moussaka.jpg",
+                url: "/recipes/moussaka.jpg",
                 keyword: ["meat"],
                 country: "greece",
                 difficulty: "high",
@@ -100,7 +100,7 @@ export const presetCards = [
         },
         {
                 name: "Perogies",
-                url: "recipes/perogies.jpg",
+                url: "/recipes/perogies.jpg",
                 keyword: ["vegetarian", "kosher"],
                 country: "poland",
                 difficulty: "high",
@@ -111,7 +111,7 @@ export const presetCards = [
         },
         {
                 name: "Pork Abodo",
-                url: "recipes/pork-abodo.jpg",
+                url: "/recipes/pork-abodo.jpg",
                 keyword: ["meat"],
                 country: "philippines",
                 difficulty: "medium",
@@ -155,7 +155,7 @@ export const presetCards = [
         },
         {
                 name: "Steak and Eggs",
-                url: "recipes/steak-and-eggs.jpg",
+                url: "/recipes/steak-and-eggs.jpg",
                 keyword: ["meat", "kosher"],
                 country: "united states",
                 difficulty: "medium",
@@ -166,7 +166,7 @@ export const presetCards = [
         },
         {
                 name: "Steak",
-                url: "recipes/steak.jpg",
+                url: "/recipes/steak.jpg",
                 keyword: ["meat", "kosher"],
                 country: "united states",
                 difficulty: "medium",
@@ -177,7 +177,7 @@ export const presetCards = [
         },
         {
                 name: "Sushi",
-                url: "recipes/sushi.jpg",
+                url: "/recipes/sushi.jpg",
                 keyword: ["vegetarian", "kosher"],
                 country: "japan",
                 difficulty: "high",
@@ -188,7 +188,7 @@ export const presetCards = [
         },
         {
                 name: "Swedish Meatballs",
-                url: "recipes/swedish-meatballs.jpg",
+                url: "/recipes/swedish-meatballs.jpg",
                 keyword: ["meat"],
                 country: "sweden",
                 difficulty: "high",
@@ -199,7 +199,7 @@ export const presetCards = [
         },
         {
                 name: "Tattie Scones",
-                url: "recipes/tattie-scones.jpg",
+                url: "/recipes/tattie-scones.jpg",
                 keyword: ["vegan", "vegetarian", "unhealthy"],
                 country: "scotland",
                 difficulty: "low",
@@ -210,7 +210,7 @@ export const presetCards = [
         },
         {
                 name: "Tteokbokki",
-                url: "recipes/tteokbokki.jpg",
+                url: "/recipes/tteokbokki.jpg",
                 keyword: ["meat"],
                 country: "south korea",
                 difficulty: "medium",
