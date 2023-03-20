@@ -3,7 +3,8 @@
 		width: 100%;
 		
 		display: inline-flex;
-		flex-wrap: wrap;	
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 </style>
 
