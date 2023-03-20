@@ -203,7 +203,7 @@
 		<div class="vertbar"></div>
 		<a href="/recipes/my-recipes" class="textBtn">My Recipes</a>
 		<div id="mateiwrapper">
-			<span id="username">Matei</span>
+			<span id="username">You</span>
 			<img src="/frontpage/user.svg" height="50" width="50" style="filter: invert()"/>
 		</div>
 		
