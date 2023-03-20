@@ -1,0 +1,19 @@
+{ 
+	"title": "Colcannon", 
+	"price": 2.00,
+	"stars": 3,
+	"difficulty": "hard",
+	"country": "Ireland",
+	"ingredients": {
+        "potatoes": "2 lbs",
+        "cabbage": "1 small head",
+        "milk": "1/2 cup",
+        "butter": "1/4 cup",
+        "green onions": "4-5, sliced",
+        "salt": "1 tsp",
+        "pepper": "1/4 tsp"
+    },
+	"culture": "Colcannon is a traditional Irish dish that has been enjoyed for centuries. Its origins can be traced back to the rural farming communities of Ireland, where potatoes and cabbage were staples of the local diet. The dish is particularly associated with Halloween, and it was once a common practice to hide small trinkets like coins or rings in the colcannon for children to find. Today, colcannon remains a popular dish in Ireland and is often served on special occasions like St. Patrick's Day. Its hearty and comforting nature has also made it a favorite dish in other parts of the world, particularly in areas with large Irish immigrant populations.",
+	"recipe": "To make colcannon, start by boiling peeled and cubed potatoes until tender. Drain and mash the potatoes with butter and milk until smooth. While the potatoes are boiling, cook chopped cabbage and sliced onions in butter until tender. Combine the cooked cabbage and onions with the mashed potatoes, and stir in cooked bacon bits (optional). Season with salt and pepper to taste. Serve hot as a side dish.",
+	"photo": "Colcannon_(5532418361).jpg"
+}

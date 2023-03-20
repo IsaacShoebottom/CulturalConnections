@@ -1,0 +1,24 @@
+{ 
+	"title": "Beef Stroganoff", 
+	"price": 8.00,
+	"stars": 4,
+	"difficulty": "medium",
+	"country": "Russia",
+	"ingredients": {
+        "beef": "1 pound",
+        "onion": "1 large, chopped",
+        "garlic": "2 cloves, minced",
+        "mushrooms": "8 ounces, sliced",
+        "flour": "2 tablespoons",
+        "beef broth": "1 1/2 cups",
+        "sour cream": "1/2 cup",
+        "egg noodles": "8 ounces, cooked",
+        "butter": "2 tablespoons",
+        "olive oil": "1 tablespoon",
+        "salt": "1 teaspoon",
+        "black pepper": "1/4 teaspoon"
+    },
+	"culture": "Beef Stroganoff is a dish with disputed origins. Some sources claim it was first created in Russia in the 19th century for Count Pavel Stroganov, while others attribute its creation to French chefs working in Russia. Regardless of its origin, the dish became popular in the early 20th century and spread to other parts of the world, including Europe and the United States. Today, it is considered a classic comfort food and is often served with noodles or rice.",
+	"recipe": "To make beef stroganoff, start by cooking egg noodles according to package instructions. Then, season thinly sliced beef strips with salt and pepper, and sauté them in a large skillet over medium-high heat until browned. Remove the beef from the skillet and set it aside. In the same skillet, sauté chopped onions and garlic until softened. Add sliced mushrooms and continue cooking until they release their liquid. Return the beef to the skillet and add beef broth, Worcestershire sauce, and Dijon mustard. Reduce the heat and let the mixture simmer for a few minutes until it thickens. Stir in sour cream and heat through. Serve the beef stroganoff over the cooked egg noodles, and garnish with chopped parsley if desired.",
+	"photo": "Beef_Stroganoff_2.jpg"
+}
