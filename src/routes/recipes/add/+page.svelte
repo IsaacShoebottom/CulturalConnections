@@ -275,16 +275,18 @@
             {/each}
             <Button on:click={addInstruction}>Add Instruction</Button>
         </div>
+
+        <span class="flex justify-center mt-10" >Please make sure to fill out all the fields!</span>
+
+        <div  class = "flex items-center justify-center mt-10 mb-10">
+            <Button color="red" class="mr-10" on:click={()=>window.history.back()}>Cancel</Button>
+            <Button color="red" class="mr-10" on:click={()=>clearStorage()}>Clear fields</Button>
+            <Button href="./custom" gradient color="cyanToBlue" class="submit">Submit</Button>
+        </div>
     </div>
 </main>
 
-<span class="flex justify-center mt-10" >Please make sure to fill out all the fields!</span>
 
-<div  class = "flex items-center justify-center mt-10 mb-10">
-    <Button color="red" class="mr-10" on:click={()=>window.history.back()}>Cancel</Button>
-    <Button color="red" class="mr-10" on:click={()=>clearStorage()}>Clear fields</Button>
-    <Button href="./custom" gradient color="cyanToBlue" class="submit">Submit</Button>
-</div>
 
 <style global>
     #app{
