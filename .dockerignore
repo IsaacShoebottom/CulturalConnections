@@ -1,0 +1,9 @@
+.idea
+.svelte-kit
+node_modules
+build
+.env
+.git
+.gitignore
+.dockerignore
+Dockerfile

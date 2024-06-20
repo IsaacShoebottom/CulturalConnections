@@ -1,0 +1,14 @@
+version: '3.2'
+
+services:
+  culturalconnections:
+    container_name: culturalconnections
+    image: culturalconnections
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - 6789:6789
+    environment:
+      - PORT=6789
+      - ORIGIN=https://culturalconnections.shoebottom.ca
